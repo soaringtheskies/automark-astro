@@ -7,13 +7,11 @@
   "packageManager": "yarn@1.22.22",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"node scripts/jsonGenerator.js && astro dev\"",
-    "build": "node scripts/themeGenerator.js && node scripts/jsonGenerator.js && astro build",
+    "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"astro dev\"",
+    "build": "node scripts/themeGenerator.js && astro build",
     "preview": "astro preview",
     "check": "astro check",
     "format": "prettier -w ./src",
-    "generate-json": "node scripts/jsonGenerator.js",
-    "remove-darkmode": "node scripts/removeDarkmode.js && yarn format",
     "deploy:cf-workers": "npm run build && wrangler deploy",
     "preview:cf-workers": "npm run build && wrangler dev"
   },
