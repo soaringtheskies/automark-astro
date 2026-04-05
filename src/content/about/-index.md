@@ -19,8 +19,6 @@ stats:
   - value: "95%"
     label: "Satisfaction Rate"
 
-
-
 our_team:
   badge: "Our Team"
   title: "Meet Our <strong>Team Of Experts</strong>"
@@ -70,5 +68,4 @@ core_values:
     - logo: "/images/features-menu-icon.svg"
       title: "Surveys & Forms"
       isStarred: false
-
 ---

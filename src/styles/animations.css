@@ -96,24 +96,26 @@
   }
 }
 
-
 /* Animate Badge Stars */
 .badge-stars {
-  @apply text-gradient-start
+  @apply text-gradient-start;
 }
 
 .badge-stars .star {
-  animation: star-fade-in-out .8s ease-in-out infinite alternate;
+  animation: star-fade-in-out 0.8s ease-in-out infinite alternate;
 }
 
 .badge-stars .star:nth-child(2) {
-
-  animation: star-fade-in-out .8s ease-in-out 0.3s infinite alternate;
+  animation: star-fade-in-out 0.8s ease-in-out 0.3s infinite alternate;
 }
 
 @keyframes star-fade-in-out {
-    from { opacity: 0; }
-    to { opacity: 0.7; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.7;
+  }
 }
 
 /* Pricing Cards */
@@ -165,5 +167,5 @@
     0deg,
     var(--color-gradient-start) 0%,
     var(--color-gradient-end) 100%
-  )
+  );
 }

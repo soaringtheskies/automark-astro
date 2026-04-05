@@ -33,21 +33,21 @@ value_props:
     - logo: "/images/value-proposition/values-icon-2.svg"
       title: "Workflow Automation"
       list:
-          - "Automated Lead Routing"
-          - "Follow-Up Sequences"
-          - "Task Management"
+        - "Automated Lead Routing"
+        - "Follow-Up Sequences"
+        - "Task Management"
     - logo: "/images/value-proposition/values-icon-3.svg"
       title: "Conversion Optimize"
       list:
-          - "A/B Testing"
-          - "Funnel Analytics"
-          - "Behavior Tracking"
+        - "A/B Testing"
+        - "Funnel Analytics"
+        - "Behavior Tracking"
     - logo: "/images/value-proposition/values-icon-4.svg"
       title: "Customer Retention"
       list:
-          - "Customer Segmentation"
-          - "Loyalty Programs"
-          - "Re-Engagement Campaigns"
+        - "Customer Segmentation"
+        - "Loyalty Programs"
+        - "Re-Engagement Campaigns"
 
 our_features:
   title: "And Everything Else You Need To Run <strong>Your Business</strong>"
@@ -81,15 +81,9 @@ our_features:
       title: "Revenue Growth Tools"
       isStarred: false
 
-
-
-
-
 testimonial_quote:
   title: "We know you didn't start your [Niche] business to Become a dull-time <strong>Software Engineer</strong>"
   quote: "Before [Agency Name], I was losing half my leads because I couldn't get to my phone fast enough. Now, the system handles the follow-up for me, and l've seen a [Percentage] jump in bookings."
-
-
 
 single_testimonial:
   stats:
@@ -156,6 +150,4 @@ lead_generation:
 pricing:
   title: "Our Affordable <strong>Pricing Plans</strong>"
   content: "Choose the plan that fits your business and start your free trial today."
-
-
 ---

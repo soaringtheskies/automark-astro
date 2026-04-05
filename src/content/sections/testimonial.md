@@ -21,5 +21,4 @@ testimonials:
     poster: "/images/testimonials/3.jpg"
     content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui iusto illo molestias, assumenda expedita commodi inventore non itaque molestiae voluptatum dolore, facilis sapiente, repellat veniam."
     video: /showcase.mp4
-
 ---

@@ -39,10 +39,10 @@
 /* container */
 .container {
   @apply mx-auto xl:max-w-330.5! px-8;
-} 
+}
 .container-sm {
   @apply container xl:max-w-5xl!;
-} 
+}
 
 /* social icons */
 .social-icons {
@@ -244,7 +244,8 @@ ul.green-tick-list {
 .t-stroke {
   font-size: 3em;
   margin: 0;
-  -webkit-text-stroke: 1px color-mix(in srgb, var(--color-text-dark) 20%, transparent 70%);
+  -webkit-text-stroke: 1px
+    color-mix(in srgb, var(--color-text-dark) 20%, transparent 70%);
 }
 
 .blob-message {
@@ -263,7 +264,7 @@ ul.green-tick-list {
 
 /* Shadows */
 .integration-logo-shadow {
-  backdrop-filter: blur(44px)
+  backdrop-filter: blur(44px);
 }
 
 /* Footer */

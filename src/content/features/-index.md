@@ -77,6 +77,4 @@ service_features:
       - icon: "fa-solid fa-table-cells-large"
         title: "Powerfull App"
         content: "Provide simple and minimalist dashboard."
-
-
 ---

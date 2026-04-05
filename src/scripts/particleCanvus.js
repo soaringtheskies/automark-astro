@@ -18,9 +18,7 @@ export function sporeCanvas(
     canvasSize = canvasSize > 1000 ? 1000 : canvasSize;
   }
 
-  const canvasElements = document.querySelectorAll(
-    targetElementClassName,
-  );
+  const canvasElements = document.querySelectorAll(targetElementClassName);
 
   canvasElements.forEach((canvas) => {
     const ctx = canvas.getContext("2d");
@@ -29,7 +27,6 @@ export function sporeCanvas(
     const particles = [];
 
     class Particle {
-
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;

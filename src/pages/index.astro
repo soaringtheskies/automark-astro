@@ -423,7 +423,7 @@ const d = homepage!.data as any;
   </section>
 
   <!-- Our Partners -->
-     <BrandsCarousel />
+  <BrandsCarousel />
 
   <!-- Single Testimonial -->
   <section class="section relative max-lg:overflow-hidden">
@@ -520,7 +520,11 @@ const d = homepage!.data as any;
           <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-16">
             {
               d.growth_process.items.map((item: any) => (
-                <ProcessCard logo={item.logo} title={item.title} content={item.content} />
+                <ProcessCard
+                  logo={item.logo}
+                  title={item.title}
+                  content={item.content}
+                />
               ))
             }
           </div>

@@ -21,7 +21,7 @@
   }
 }
 .btn-outline-primary {
-  @apply border-[1.5px] border-primary text-primary ;
+  @apply border-[1.5px] border-primary text-primary;
 }
 
 .btn-outline {
@@ -30,5 +30,3 @@
 .btn-outline:hover {
   box-shadow: 0px 0px 15px var(--color-gradient-end);
 }
-
-

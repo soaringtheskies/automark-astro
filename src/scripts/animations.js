@@ -9,7 +9,9 @@ import { sporeCanvas } from "./particleCanvus.js";
   // On < XL: starts scaled 0.8, rotationX 15 → scrolls to normal
   function heroVideo() {
     const mm = gsap.matchMedia();
-    const gsapVideoShowcase = document.querySelectorAll("[data-gsap-video-showcase]");
+    const gsapVideoShowcase = document.querySelectorAll(
+      "[data-gsap-video-showcase]",
+    );
     if (!gsapVideoShowcase.length) return;
 
     gsapVideoShowcase.forEach((el) => {
@@ -80,7 +82,7 @@ import { sporeCanvas } from "./particleCanvus.js";
       gsap.fromTo(
         imgs,
         { opacity: 0, filter: "blur(10px)", y: -30 },
-        { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.9, stagger: 0.15 }
+        { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.9, stagger: 0.15 },
       );
 
       gsap.to(imgs, {
@@ -102,12 +104,12 @@ import { sporeCanvas } from "./particleCanvus.js";
     const targetElementClassName = ".heroSporeCanvas";
     sporeCanvas(
       targetElementClassName,
-      140,   // particle count
-      0.2,   // min size
-      1.6,   // max size
-      0.0,   // min speed
-      0.1,   // max speed
-      800    // canvas size
+      140, // particle count
+      0.2, // min size
+      1.6, // max size
+      0.0, // min speed
+      0.1, // max speed
+      800, // canvas size
     );
   }
 
@@ -132,8 +134,12 @@ import { sporeCanvas } from "./particleCanvus.js";
         labels[1]?.classList.remove("active");
       }
 
-      const monthlyElements = document.querySelectorAll("[data-price-tag-monthly]");
-      const yearlyElements = document.querySelectorAll("[data-price-tag-yearly]");
+      const monthlyElements = document.querySelectorAll(
+        "[data-price-tag-monthly]",
+      );
+      const yearlyElements = document.querySelectorAll(
+        "[data-price-tag-yearly]",
+      );
       const elementsToHide = isYearly ? monthlyElements : yearlyElements;
       const elementsToShow = isYearly ? yearlyElements : monthlyElements;
 

@@ -2,8 +2,7 @@
 import config from "@/config/config.json";
 import ImageMod from "./ImageMod.astro";
 
-const { src }: { src?: string; } =
-  Astro.props;
+const { src }: { src?: string } = Astro.props;
 const {
   logo,
   logo_width,
@@ -17,7 +16,6 @@ const {
   logo_text: string;
   title: string;
 } = config.site;
-
 ---
 
 <a href="/" class="navbar-brand inline-block">
@@ -36,7 +34,6 @@ const {
           }}
           format="webp"
         />
-      
       </>
     ) : logo_text ? (
       logo_text
