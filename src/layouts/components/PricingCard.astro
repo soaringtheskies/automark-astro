@@ -9,6 +9,7 @@ interface Props {
   yearly_price: string;
   title: string;
   isFeatured?: boolean;
+  offer_text?: string;
   button_label?: string;
   button_link?: string;
   description?: string;
@@ -19,10 +20,13 @@ const {
   yearly_price,
   title,
   isFeatured = false,
+  offer_text,
   button_label,
+  button_link,
   description,
   features,
 } = Astro.props;
+
 ---
 
 <div
@@ -35,7 +39,7 @@ const {
           <div class="size-160 bg-radial from-gradient-end to-transparent from-0% to-70% rounded-full" />
         </div>
         <div class="absolute top-10 right-5 transform bg-primary/50 text-text-white text-xs font-semibold py-1.5 px-3 rounded-lg">
-          Save 30%
+          {offer_text ?? "Most Popular"}
         </div>
       </>
     )
@@ -68,9 +72,9 @@ const {
   <h3 class="text-h6 text-text-white mb-5">{title}</h3>
   <p class="text-text-dark">{description}</p>
 
-  <button class="btn btn-primary w-full my-10">
+  <a href={button_link} class="btn btn-primary w-full my-10 block text-center">
     {button_label}
-  </button>
+  </a>
 
   <div class="text-text-white font-bold mb-6">Features Included</div>
 

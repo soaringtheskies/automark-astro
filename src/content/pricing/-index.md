@@ -38,6 +38,7 @@ plans:
     price: "70"
     yearly_price: "49"
     isFeatured: true
+    offer_text: 30% save
     button_label: "Get Access"
     button_link: "#"
     description: "Our introductory pricing. This will give you the core necessities."

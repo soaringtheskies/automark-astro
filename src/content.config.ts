@@ -274,6 +274,7 @@ const pricingCollection = defineCollection({
         price: z.string(),
         yearly_price: z.string(),
         isFeatured: z.boolean(),
+        offer_text: z.string().optional(),
         button_label: z.string(),
         button_link: z.string(),
         description: z.string(),
