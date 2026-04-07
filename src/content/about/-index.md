@@ -10,16 +10,19 @@ page_header:
   image: "/images/about_hero.png"
 
 stats:
-  - value: "12+"
-    label: "Years Of Experience"
-  - value: "350+"
-    label: "Satisfied Clients"
-  - value: "2.8K"
-    label: "Projects Completed"
-  - value: "95%"
-    label: "Satisfaction Rate"
+  enable: true
+  items:
+    - value: "12+"
+      label: "Years Of Experience"
+    - value: "350+"
+      label: "Satisfied Clients"
+    - value: "2.8K"
+      label: "Projects Completed"
+    - value: "95%"
+      label: "Satisfaction Rate"
 
 our_team:
+  enable: true
   badge: "Our Team"
   title: "Meet Our <strong>Team Of Experts</strong>"
   members:
@@ -37,6 +40,7 @@ our_team:
       role: "Creative Director"
 
 core_values:
+  enable: true
   badge: "Our Features"
   title: "And Everything Else You Need To Run <strong>Vision and Work</strong>"
   subtitle: "Automark's intuitive shared inbox makes it easy for team members to organize, prioritize and solve customer requests — all in a familiar interface."

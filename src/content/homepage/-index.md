@@ -12,6 +12,7 @@ banner:
     link: "#"
 
 main_features:
+  enable: true
   title: "Are you tired of losing Marketing leads to the <strong>Follow-up Gap</strong>"
   content: "Automark's intuitive shared inbox makes it easy for team members to organize, prioritize and solve customer requests — all in a familiar interface."
   items:
@@ -23,6 +24,7 @@ main_features:
     - "Slow Response Times"
 
 value_props:
+  enable: true
   title: "Are you tired of losing Marketing leads to the <strong>Follow-up Gap</strong>"
   content: "Automark's intuitive shared inbox makes it easy for team members to organize, prioritize and solve customer requests — all in a familiar interface."
   items:
@@ -52,6 +54,7 @@ value_props:
         - "Re-Engagement Campaigns"
 
 our_features:
+  enable: true
   title: "And Everything Else You Need To Run <strong>Your Business</strong>"
   content: "Automark's intuitive shared inbox makes it easy for team members to organize, prioritize and solve customer requests — all in a familiar interface."
   items:
@@ -84,10 +87,12 @@ our_features:
       is_starred: false
 
 testimonial_quote:
+  enable: true
   title: "We know you didn't start your [Niche] business to Become a dull-time <strong>Software Engineer</strong>"
   quote: "Before [Agency Name], I was losing half my leads because I couldn't get to my phone fast enough. Now, the system handles the follow-up for me, and l've seen a [Percentage] jump in bookings."
 
 single_testimonial:
+  enable: true
   stats:
     - value: "10,460+"
       label: "Lead Captured"
@@ -102,6 +107,7 @@ single_testimonial:
     company: "Gillette"
 
 growth_process:
+  enable: true
   title: 'Your 3-Step Path to <strong class="italic">Automated Growth</strong>'
   items:
     - logo: "/images/value-proposition/values-icon-2.svg"
@@ -119,6 +125,7 @@ growth_process:
     link: "#"
 
 integrations:
+  enable: true
   title: "Connect all the <strong>Applications</strong>"
   items:
     - image: "/images/integrations/snapchat.png"
@@ -139,10 +146,13 @@ integrations:
       alt: "asana"
 
 lead_generation:
+  enable: true
   title: "Free Resource for <strong>Business Owners</strong>"
-  heading: 'The "Leaking Bucket" Audit: 5 Ways You''re Losing Leads (And How to Fix Them).'
-  p1: "Did you know that most small businesses lose up to 50% of their potential sales simply because of slow follow-up?"
-  p2: 'Download our <strong>FREE</strong> Checklist to identify the "lead leaks" in your current system and learn how to plug them with simple automation.'
+  subtitle: 'The "Leaking Bucket" Audit: 5 Ways You''re Losing Leads (And How to Fix Them).'
+  content: |
+    Did you know that most small businesses lose up to 50% of their potential sales simply because of slow follow-up?
+
+    Download our <strong>FREE</strong> Checklist to identify the "lead leaks" in your current system and learn how to plug them with simple automation.
   list:
     - "<strong>The Follow-Up Audit:</strong> A step-by-step guide to measuring your lead response time."
     - "<strong>Automation Quick-Wins:</strong> 3 workflows you can set up today to start booking more appointments."
@@ -153,8 +163,8 @@ lead_generation:
     label: "Get Free Checklist"
     link: "#"
 
-
 pricing:
+  enable: true
   title: "Our Affordable <strong>Pricing Plans</strong>"
   content: "Choose the plan that fits your business and start your free trial today."
 ---

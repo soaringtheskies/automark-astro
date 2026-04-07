@@ -4,17 +4,21 @@ meta_title: "SEO Product Manager - Automark Careers"
 description: "Lead product strategy, collaborate with engineering, and shape the future of our analytics platform."
 type: "Full time"
 location: "California"
-hero_image: "/images/careers/career-details-banner.png"
+banner_image: "/images/careers/career-details-banner.png"
 draft: false
-meta:
+job_info:
   - label: "Department"
-    value: "Product"
+    value: "Marketing"
+    icon: "/images/icons/careerdevelopment.svg"
   - label: "Location"
     value: "California"
+    icon: "/images/icons/paidtimeoff.svg"
   - label: "Type"
     value: "Full Time"
+    icon: "/images/icons/wellbeing.svg"
   - label: "Posted"
     value: "20 Jan 2025"
+    icon: "/images/icons/healthicon.svg"
 ---
 
 ## Job Description

@@ -1,7 +1,6 @@
 ---
 import ImageMod from "@/layouts/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
-import Badge from "@/layouts/components/Badge.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
@@ -22,9 +21,9 @@ const studyData = study.data;
   title={studyData.title}
   meta_title={studyData.meta_title}
   description={studyData.description}
-  image={studyData.hero_image}
+  image={studyData.image}
 >
-  <!-- Page Header (same style as other pages) -->
+  <!-- Page Header -->
   <section class="section-ph pb-8 relative overflow-hidden">
     <div class="container relative">
       <div class="absolute top-0 left-0 w-full">
@@ -33,7 +32,10 @@ const studyData = study.data;
         </div>
       </div>
       <div class="lg:max-w-4xl mx-auto text-center relative">
-        <h1 class="mb-0 text-h3 lg:text-h1 hasHighlight" set:html={markdownify(studyData.title)} />
+        <h1
+          class="mb-0 text-h3 lg:text-h1 hasHighlight"
+          set:html={markdownify(studyData.title)}
+        />
       </div>
     </div>
     <div
@@ -50,7 +52,7 @@ const studyData = study.data;
         class="relative rounded-3xl overflow-hidden bg-light aspect-video lg:aspect-1000/520"
       >
         <ImageMod
-          src={studyData.hero_image!}
+          src={studyData.image!}
           alt={studyData.title}
           class="w-full h-full object-cover opacity-80"
         />
@@ -58,12 +60,12 @@ const studyData = study.data;
     </div>
   </section>
 
-  <!-- Meta Info Cards -->
+  <!-- Client Info Cards -->
   <section class="section-sm pt-0">
     <div class="container">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {
-          studyData?.meta?.map((item: any) => (
+          studyData?.client_info?.map((item) => (
             <div class="bg-light rounded-2xl p-6 py-12.5 text-center">
               <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                 <ImageMod
@@ -95,12 +97,11 @@ const studyData = study.data;
           />
         </div>
         <div>
-          <h2 class="text-h3 lg:text-h2 mb-6">{studyData?.overview?.heading}</h2>
-          {
-            studyData?.overview?.paragraphs?.map((p: string) => (
-              <p class="text-text mb-4">{p}</p>
-            ))
-          }
+          <h2 class="text-h3 lg:text-h2 mb-6">{studyData?.overview?.title}</h2>
+          <div
+            class="text-text space-y-4"
+            set:html={markdownify(studyData?.overview?.content ?? "", true)}
+          />
         </div>
       </div>
     </div>
@@ -112,12 +113,13 @@ const studyData = study.data;
       <div class="container">
         <div class="grid lg:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 class="text-h3 lg:text-h2 mb-6">{studyData?.challenges?.heading}</h2>
-            {
-              studyData?.challenges?.paragraphs?.map((p: string) => (
-                <p class="text-text mb-4">{p}</p>
-              ))
-            }
+            <h2 class="text-h3 lg:text-h2 mb-6">
+              {studyData?.challenges?.title}
+            </h2>
+            <div
+              class="text-text space-y-4"
+              set:html={markdownify(studyData?.challenges?.content ?? "", true)}
+            />
           </div>
           <!-- Blockquote -->
           <div class="bg-light/80 rounded-3xl p-8 xl:p-10 relative">
@@ -156,11 +158,13 @@ const studyData = study.data;
       <div class="container">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div class="order-2 lg:order-1">
-            <h2 class="text-h3 lg:text-h2 mb-6">{studyData?.solution?.heading}</h2>
+            <h2 class="text-h3 lg:text-h2 mb-6">
+              {studyData?.solution?.title}
+            </h2>
             <p class="text-text mb-6">{studyData?.solution?.content}</p>
             <ul class="space-y-4">
               {
-                studyData?.solution?.items?.map((item: string) => (
+                studyData?.solution?.items?.map((item) => (
                   <li class="flex items-start gap-3">
                     <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
                       <svg
@@ -200,25 +204,17 @@ const studyData = study.data;
       <div class="container">
         <div class="grid lg:grid-cols-2 gap-12 items-start mb-16">
           <div>
-            <h2 class="text-h3 lg:text-h2 mb-6">{studyData?.results?.heading}</h2>
-            {
-              studyData?.results?.paragraphs
-                ?.slice(0, 1)
-                .map((p: string) => <p class="text-text mb-4">{p}</p>)
-            }
-          </div>
-          <div>
-            {
-              studyData?.results?.paragraphs
-                ?.slice(1)
-                .map((p: string) => <p class="text-text">{p}</p>)
-            }
+            <h2 class="text-h3 lg:text-h2 mb-6">{studyData?.results?.title}</h2>
+            <div
+              class="text-text space-y-4"
+              set:html={markdownify(studyData?.results?.content ?? "", true)}
+            />
           </div>
         </div>
         <!-- Metrics -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {
-            studyData?.results?.metrics?.map((metric: any) => (
+            studyData?.results?.metrics?.map((metric) => (
               <div class="bg-light rounded-3xl p-8 py-16 text-center">
                 <div class="text-h2 leading-none font-bold font-secondary text-text-white mb-2">
                   {metric.value}

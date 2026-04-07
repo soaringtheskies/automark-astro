@@ -24,7 +24,6 @@ const {
   description,
   features,
 } = Astro.props;
-
 ---
 
 <div
@@ -70,11 +69,16 @@ const {
   <h3 class="text-h6 text-text-white mb-5">{title}</h3>
   <p class="text-text-dark">{description}</p>
 
-  {button.enable && (
-    <a href={button.link} class="btn btn-primary w-full my-10 block text-center">
-      {button.label}
-    </a>
-  )}
+  {
+    button.enable && (
+      <a
+        href={button.link}
+        class="btn btn-primary w-full my-10 block text-center"
+      >
+        {button.label}
+      </a>
+    )
+  }
 
   <div class="text-text-white font-bold mb-6">Features Included</div>
 

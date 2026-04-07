@@ -9,13 +9,15 @@ page_header:
   subtitle: "Our team is here to help. Whether you have a question about features, pricing, or anything else, our support team is ready to assist you."
 
 contact_info:
-  - type: "email"
-    title: "Email Us"
-    detail: "Automark@gmail.com"
-  - type: "phone"
-    title: "Call Us"
-    detail: "+1 (800) 321-9876"
-  - type: "calendar"
-    title: "Book A Meeting"
-    detail: "calendar.app.google"
+  enable: true
+  items:
+    - type: "email"
+      title: "Email Us"
+      detail: "Automark@gmail.com"
+    - type: "phone"
+      title: "Call Us"
+      detail: "+1 (800) 321-9876"
+    - type: "calendar"
+      title: "Book A Meeting"
+      detail: "calendar.app.google"
 ---

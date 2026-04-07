@@ -1,13 +1,10 @@
 ---
-import Badge from "./Badge.astro";
 import GradientBlob from "./GradientBlob.astro";
 import PricingCard from "./PricingCard.astro";
 import { getListPage } from "@/lib/contentParser.astro";
 import type { Pricing } from "@/types";
 
 interface Props {
-  /** Override the section badge text */
-  badge?: string;
   /** Override the section title HTML */
   title?: string;
   /** Override the section description */
@@ -15,12 +12,11 @@ interface Props {
   isHome?: boolean;
 }
 
-const { badge, title, content, isHome = true } = Astro.props;
+const { title, content, isHome = true } = Astro.props;
 
 const pricingEntry = await getListPage("pricing", "-index");
 const pricingData: Pricing = pricingEntry.data;
 
-const sectionBadge = badge ?? pricingData.page_header?.badge ?? "Pricing";
 const sectionTitle = title ?? pricingData.page_header?.title ?? "";
 const sectionContent = content ?? pricingData.page_header?.content ?? "";
 ---
@@ -34,7 +30,6 @@ const sectionContent = content ?? pricingData.page_header?.content ?? "";
       {
         isHome && (
           <div class="section-intro centralize">
-       
             <h2 class="title hasHighlight" set:html={sectionTitle} />
             {sectionContent && <p>{sectionContent}</p>}
           </div>

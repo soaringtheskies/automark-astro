@@ -4,17 +4,21 @@ meta_title: "UX/UI Designer - Automark Careers"
 description: "Create intuitive user experiences and beautiful interfaces for our growing product suite."
 type: "Full time"
 location: "Remote"
-hero_image: "/images/careers/career-details-banner.png"
+banner_image: "/images/careers/career-details-banner.png"
 draft: false
-meta:
+job_info:
   - label: "Department"
-    value: "Design"
+    value: "Marketing"
+    icon: "/images/icons/careerdevelopment.svg"
   - label: "Location"
-    value: "Remote"
+    value: "California"
+    icon: "/images/icons/paidtimeoff.svg"
   - label: "Type"
     value: "Full Time"
+    icon: "/images/icons/wellbeing.svg"
   - label: "Posted"
     value: "20 Jan 2025"
+    icon: "/images/icons/healthicon.svg"
 ---
 
 ## Job Description

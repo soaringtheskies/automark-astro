@@ -12,7 +12,10 @@ if (!ourStoryData.enable) return;
   <div class="container">
     <div class="section-container">
       <div class="section-intro centralize">
-        <h2 class="title hasHighlight lg:col-8 mx-auto" set:html={ourStoryData.title} />
+        <h2
+          class="title hasHighlight lg:col-8 mx-auto"
+          set:html={ourStoryData.title}
+        />
       </div>
       <div class="section-content">
         <hr
@@ -31,7 +34,9 @@ if (!ourStoryData.enable) return;
                   src={ourStoryData.ceo.image}
                   alt={ourStoryData.ceo.name}
                 />
-                <p class="text-text-white font-semibold">{ourStoryData.ceo.name}</p>
+                <p class="text-text-white font-semibold">
+                  {ourStoryData.ceo.name}
+                </p>
                 <p class="text-text-dark text-sm">{ourStoryData.ceo.role}</p>
               </div>
               <div class="text-h6 mt-12 mb-17 text-left mx-auto">
@@ -39,34 +44,45 @@ if (!ourStoryData.enable) return;
               </div>
 
               {
-                ourStoryData.letter_points && ourStoryData.letter_points.length > 0 && (
-                  <>
-                    <div class="text-h6 text-text-white font-semibold text-center mb-7">
-                      {ourStoryData.letter_points_heading ?? "Here's how we do it:"}
-                    </div>
-                    <div class="flex flex-col gap-y-7 relative vertical-bg-line ">
-                      {ourStoryData.letter_points.map((point) => (
-                        <div class="bg-linear-to-tl from-border to-body border border-border px-8 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
-                          <span class="font-semibold text-text-white text-lg">
-                            {point}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </>
+                ourStoryData.letter_points &&
+                  ourStoryData.letter_points.length > 0 && (
+                    <>
+                      <div class="text-h6 text-text-white font-semibold text-center mb-7">
+                        {ourStoryData.letter_points_title ??
+                          "Here's how we do it:"}
+                      </div>
+                      <div class="flex flex-col gap-y-7 relative vertical-bg-line ">
+                        {ourStoryData.letter_points.map((point) => (
+                          <div class="bg-linear-to-tl from-border to-body border border-border px-8 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
+                            <span class="font-semibold text-text-white text-lg">
+                              {point}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )
+              }
+
+              {
+                ourStoryData.closing_content && (
+                  <p class="mt-15 text-h6">{ourStoryData.closing_content}</p>
                 )
               }
 
-              {ourStoryData.letter_p2 && <p class="mt-15 text-h6">{ourStoryData.letter_p2}</p>}
-
               {
-                ourStoryData.button && ourStoryData.button.enable && ourStoryData.button.link && (
-                  <div class="mt-12 flex justify-center">
-                    <a href={ourStoryData.button.link} class="btn btn-primary py-4">
-                      {ourStoryData.button.label}
-                    </a>
-                  </div>
-                )
+                ourStoryData.button &&
+                  ourStoryData.button.enable &&
+                  ourStoryData.button.link && (
+                    <div class="mt-12 flex justify-center">
+                      <a
+                        href={ourStoryData.button.link}
+                        class="btn btn-primary py-4"
+                      >
+                        {ourStoryData.button.label}
+                      </a>
+                    </div>
+                  )
               }
             </div>
           </div>

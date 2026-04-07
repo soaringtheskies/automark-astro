@@ -10,4 +10,3 @@ input#nav-toggle:checked + label #hide-button {
 input#nav-toggle:checked ~ #nav-menu {
   @apply max-lg:block;
 }
-

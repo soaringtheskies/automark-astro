@@ -1,7 +1,5 @@
 ---
 import Base from "@/layouts/Base.astro";
-import Badge from "@/layouts/components/Badge.astro";
-import TestimonialCard from "@/layouts/components/TestimonialCard.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
 import CaseStudyCard from "@/layouts/components/CaseStudyCard.astro";
 import { getSinglePage, getListPage } from "@/lib/contentParser.astro";
@@ -16,7 +14,11 @@ const pageData: CaseStudy = caseStudyList.data;
 const caseStudies = await getSinglePage("caseStudy");
 ---
 
-<Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
+<Base
+  title={pageData.title}
+  meta_title={pageData.meta_title}
+  description={pageData.description}
+>
   <!-- Page Header -->
   <section class="section-ph pb-20 relative overflow-hidden">
     <div class="container relative">
@@ -31,7 +33,9 @@ const caseStudies = await getSinglePage("caseStudy");
             class="mb-6 lg:col-9 mx-auto text-h3 lg:text-h1 hasHighlight"
             set:html={markdownify(pageData.page_header!.title)}
           />
-          <p class="mb-10 lg:col-6 mx-auto text-lg">{pageData.page_header!.content}</p>
+          <p class="mb-10 lg:col-6 mx-auto text-lg">
+            {pageData.page_header!.content}
+          </p>
         </div>
       </div>
     </div>
@@ -53,16 +57,13 @@ const caseStudies = await getSinglePage("caseStudy");
           caseStudies.map((study) => (
             <CaseStudyCard
               href={`/case-study/${study.id}`}
-              image={study.data.hero_image!}
+              image={study.data.image!}
               logo={study.data.logo!}
               company={study.data.company!}
               badge={study.data.badge!}
               title={study.data.title}
               description={study.data.description!}
-              stat1Value={study.data.stat_1_value}
-              stat1Label={study.data.stat_1_label}
-              stat2Value={study.data.stat_2_value}
-              stat2Label={study.data.stat_2_label}
+              stats={study.data.stats}
             />
           ))
         }

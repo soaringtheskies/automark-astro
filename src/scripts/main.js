@@ -188,7 +188,6 @@
     });
   };
 
-
   // Header: Reveal / Hide based on scroll direction after 200px
   const headerReveal = () => {
     const header = document.querySelector(".header");

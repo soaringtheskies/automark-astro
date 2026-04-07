@@ -5,46 +5,53 @@ description: "How Kyber Security transformed their lead generation and achieved 
 date: 2024-01-20
 draft: false
 
-hero_image: "/images/case-study-hero.png"
+image: "/images/case-study-hero.png"
 thumbnail: "/images/case-study-hero.png"
 
+badge: "Security"
 logo: "/images/brands/pingdom-logo-svg-150px.svg"
 company: "Pingdom"
-badge: "Security"
-stat_1_value: "40%"
-stat_1_label: "Increase in conversion rate"
-stat_2_value: "75%"
-stat_2_label: "Reduction in manual work"
 
-meta:
-  - label: "Client"
+stats:
+  - value: "40%"
+    label: "Increase in conversion rate"
+  - value: "75%"
+    label: "Reduction in manual work"
+
+client_info:
+  - icon: "/images/icons/careerdevelopment.svg"
+    label: "Client"
     value: "Kyber Security"
-    icon: "/images/icons/careerdevelopment.svg"
-  - label: "Industry"
+  - icon: "/images/icons/healthicon.svg"
+    label: "Industry"
     value: "Public Safety"
-    icon: "/images/icons/healthicon.svg"
-  - label: "Service"
+  - icon: "/images/icons/paidtimeoff.svg"
+    label: "Service"
     value: "Lead Capture"
-    icon: "/images/icons/paidtimeoff.svg"
-  - label: "Date"
+  - icon: "/images/icons/wellbeing.svg"
+    label: "Date"
     value: "20 Jan 2024"
-    icon: "/images/icons/wellbeing.svg"
 
 overview:
   image: "/images/case-study-overview.png"
-  heading: "Overview"
-  paragraphs:
-    - "Kyber Security is a leading cybersecurity services provider for the U.S. defense and intelligence communities, protecting organizations from increasingly complex cyber threats."
-    - "When Kyber Security approached Automark, they were struggling with inefficient lead management processes and lacked a unified system to track and nurture prospects through their complex sales cycles."
-    - "Their existing tools were fragmented, leading to missed opportunities and inconsistent follow-ups. They needed a comprehensive solution that could automate their marketing efforts while maintaining the personal touch their high-value clients expected."
+  title: "Overview"
+  content: |
+    Kyber Security is a leading cybersecurity services provider for the U.S. defense and intelligence communities, protecting organizations from increasingly complex cyber threats.
+
+    When Kyber Security approached Automark, they were struggling with inefficient lead management processes and lacked a unified system to track and nurture prospects through their complex sales cycles.
+
+    Their existing tools were fragmented, leading to missed opportunities and inconsistent follow-ups. They needed a comprehensive solution that could automate their marketing efforts while maintaining the personal touch their high-value clients expected.
 
 challenges:
-  heading: "Challenges"
-  paragraphs:
-    - "A comprehensive content writing workflow can be a total fit. We follow flexible paths for discovery, a collaborative process that supports full-cycle."
-    - "Frameworks of brand adapted. They do a brilliant blend of brand expression and operation design that supports full-cycle."
-    - "Identifying key aspects of our requirements. At first, they were able to support in a way, it seemed to offer it soon guaranteed to win, infusing the project version is the client is our main competency scope."
-    - "Their team communicated seamlessly with ours, making the entire collaboration feel like an extension of our own company."
+  title: "Challenges"
+  content: |
+    A comprehensive content writing workflow can be a total fit. We follow flexible paths for discovery, a collaborative process that supports full-cycle.
+
+    Frameworks of brand adapted. They do a brilliant blend of brand expression and operation design that supports full-cycle.
+
+    Identifying key aspects of our requirements. At first, they were able to support in a way, it seemed to offer it soon guaranteed to win, infusing the project version is the client is our main competency scope.
+
+    Their team communicated seamlessly with ours, making the entire collaboration feel like an extension of our own company.
   quote: "They truly understood our business at a depth, offering data-driven updates on time, we designed and managed a project to drive value, including time, and integrate productively."
   quote_author:
     name: "Sarah Mitchell"
@@ -53,7 +60,7 @@ challenges:
 
 solution:
   image: "/images/case-study-solution.png"
-  heading: "Solution"
+  title: "Solution"
   content: "With many years of experience and a focus on Lead Capture, Automark transformed how Kyber Security approached their marketing and sales processes."
   items:
     - "Implemented automated lead scoring and nurturing workflows"
@@ -63,10 +70,11 @@ solution:
     - "Provided real-time analytics dashboard for performance tracking"
 
 results:
-  heading: "Result"
-  paragraphs:
-    - "Within just 180 days of implementation, Kyber Security saw a transformation in their lead generation and conversion metrics. The automated workflows saved their team over 40 hours per week in manual tasks."
-    - "Where previously, it took 20 hours to manually prospect 100 names, with UpLead Kyber Security sources 500 of the best-fit decision-makers in two hours. That's 5x the prospects in a tenth of the time."
+  title: "Results"
+  content: |
+    Within just 180 days of implementation, Kyber Security saw a transformation in their lead generation and conversion metrics. The automated workflows saved their team over 40 hours per week in manual tasks.
+
+    Where previously, it took 20 hours to manually prospect 100 names, with UpLead Kyber Security sources 500 of the best-fit decision-makers in two hours. That's 5x the prospects in a tenth of the time.
   metrics:
     - value: "$50,000"
       label: "Cost savings"

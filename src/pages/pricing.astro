@@ -12,7 +12,11 @@ const pricing = await getListPage("pricing", "-index");
 const pricingData: Pricing = pricing.data;
 ---
 
-<Base title={pricingData.title} meta_title={pricingData.meta_title} description={pricingData.description}>
+<Base
+  title={pricingData.title}
+  meta_title={pricingData.meta_title}
+  description={pricingData.description}
+>
   <!-- Page Header -->
   <section class="section-ph pb-0 relative overflow-hidden">
     <div class="container relative">
@@ -23,7 +27,6 @@ const pricingData: Pricing = pricing.data;
       </div>
       <div class="row justify-center">
         <div class="mb-10 text-center relative z-10">
-          
           <h1
             class="mb-6 lg:col-9 mx-auto text-h3 lg:text-h1 hasHighlight"
             set:html={markdownify(pricingData.page_header.title)}
@@ -43,81 +46,82 @@ const pricingData: Pricing = pricing.data;
   </section>
 
   <!-- Comparison Table -->
-  <section class="section relative isolate overflow-hidden">
-    <div class="container">
-      <div class="section-container">
-        <div class="section-intro centralize">
-          <Badge title={pricingData.comparison.badge} />
-          <h2 class="title hasHighlight" set:html={markdownify(pricingData.comparison.title)} />
-        </div>
-        <div class="section-content">
-          <div class="overflow-x-auto">
-            <div
-              class="relative min-w-275 overflow-hidden rounded-3xl border border-border/80 bg-light/70 text-text shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-md"
-            >
-              <div
-                class="grid grid-cols-[1.2fr_1fr_1fr_1fr] items-center text-sm md:text-base font-primary text-text relative z-10"
-              >
-                {
-                  pricingData.comparison.headers.map((h: any, i: number) => (
-                    <div
-                      class={`px-6 py-5 text-h5-sm font-semibold text-text-white ${i === 0 ? "" : "text-center"}`}
-                    >
-                      {h.label}
-                    </div>
-                  ))
-                }
-              </div>
+  {
+    pricingData.comparison.enable && (
+      <section class="section relative isolate overflow-hidden">
+        <div class="container">
+          <div class="section-container">
+            <div class="section-intro centralize">
+              <Badge title={pricingData.comparison.badge} />
+              <h2
+                class="title hasHighlight"
+                set:html={markdownify(pricingData.comparison.title)}
+              />
+            </div>
+            <div class="section-content">
+              <div class="overflow-x-auto">
+                <div class="relative min-w-275 overflow-hidden rounded-3xl border border-border/80 bg-light/70 text-text shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-md">
+                  <div class="grid grid-cols-[1.2fr_1fr_1fr_1fr] items-center text-sm md:text-base font-primary text-text relative z-10">
+                    {pricingData.comparison.headers.map((h: any, i: number) => (
+                      <div
+                        class={`px-6 py-5 text-h5-sm font-semibold text-text-white ${i === 0 ? "" : "text-center"}`}
+                      >
+                        {h.label}
+                      </div>
+                    ))}
+                  </div>
 
-              <div class="relative z-10">
-                {
-                  pricingData.comparison.rows.map((row: any, i: number) => (
-                    <div
-                      class={`grid grid-cols-[1.2fr_1fr_1fr_1fr] items-center border-t border-border/60 ${i % 2 === 0 ? "bg-white/5" : ""}`}
-                    >
-                      <div class="px-6 py-4 text-text-white">{row.feature}</div>
-                      {row.values.map((val: any, valIndex: number) => (
-                        <div class="px-6 py-4 text-center">
-                          {typeof val === "boolean" ? (
-                            val ? (
-                              <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-primary/80 shadow-[0_8px_18px_rgba(147,122,255,0.35)]">
-                                <svg
-                                  class="h-4 w-4 text-white"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="3"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  aria-hidden="true"
-                                >
-                                  <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                              </span>
-                            ) : (
-                              <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/10 ring-1 ring-border/60">
-                                <span class="block h-0.5 w-3 rounded-full bg-white/60" />
-                              </span>
-                            )
-                          ) : (
-                            <span
-                              class={`font-medium ${valIndex === 1 ? "text-text-white" : "text-text-dark"}`}
-                            >
-                              {val}
-                            </span>
-                          )}
+                  <div class="relative z-10">
+                    {pricingData.comparison.rows.map((row: any, i: number) => (
+                      <div
+                        class={`grid grid-cols-[1.2fr_1fr_1fr_1fr] items-center border-t border-border/60 ${i % 2 === 0 ? "bg-white/5" : ""}`}
+                      >
+                        <div class="px-6 py-4 text-text-white">
+                          {row.feature}
                         </div>
-                      ))}
-                    </div>
-                  ))
-                }
+                        {row.values.map((val: any, valIndex: number) => (
+                          <div class="px-6 py-4 text-center">
+                            {typeof val === "boolean" ? (
+                              val ? (
+                                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-primary/80 shadow-[0_8px_18px_rgba(147,122,255,0.35)]">
+                                  <svg
+                                    class="h-4 w-4 text-white"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                  >
+                                    <polyline points="20 6 9 17 4 12" />
+                                  </svg>
+                                </span>
+                              ) : (
+                                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/10 ring-1 ring-border/60">
+                                  <span class="block h-0.5 w-3 rounded-full bg-white/60" />
+                                </span>
+                              )
+                            ) : (
+                              <span
+                                class={`font-medium ${valIndex === 1 ? "text-text-white" : "text-text-dark"}`}
+                              >
+                                {val}
+                              </span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
+    )
+  }
 
   <!-- FAQ -->
   <Faq />

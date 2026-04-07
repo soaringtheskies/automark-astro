@@ -3,7 +3,10 @@ import ImageMod from "@/layouts/components/ImageMod.astro";
 import { getListPage } from "@/lib/contentParser.astro";
 import type { ComparisonRowSection } from "@/types";
 
-const comparisonEntry = await getListPage("comparisonRowSection", "comparison-row");
+const comparisonEntry = await getListPage(
+  "comparisonRowSection",
+  "comparison-row",
+);
 const comparisonData: ComparisonRowSection = comparisonEntry.data;
 if (!comparisonData.enable) return;
 ---

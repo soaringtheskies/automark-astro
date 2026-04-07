@@ -7,10 +7,21 @@ import config from "@/config/config.json";
 >
   <h3 class="text-h4 font-bold text-text-white mb-8">Apply for position</h3>
 
-  <form class="space-y-5" action={config.params.apply_form_action} method="POST" enctype="multipart/form-data">
+  <form
+    class="space-y-5"
+    action={config.params.apply_form_action}
+    method="POST"
+    enctype="multipart/form-data"
+  >
     <!-- Name Input -->
     <div>
-      <input type="text" placeholder="Name" class="form-input w-full" required name="name" />
+      <input
+        type="text"
+        placeholder="Name"
+        class="form-input w-full"
+        required
+        name="name"
+      />
     </div>
 
     <!-- Email Input -->
@@ -27,7 +38,13 @@ import config from "@/config/config.json";
     <!-- CV Upload -->
     <div>
       <label class="block w-full cursor-pointer">
-        <input type="file" class="hidden" accept=".pdf,.doc,.docx" name="cv" required />
+        <input
+          type="file"
+          class="hidden"
+          accept=".pdf,.doc,.docx"
+          name="cv"
+          required
+        />
         <div
           class="form-input rounded-full! border border-dashed border-border px-6 py-5 flex items-center gap-3 transition hover:border-primary"
         >
@@ -56,8 +73,7 @@ import config from "@/config/config.json";
         class="form-input rounded-4xl! w-full resize-none"
         rows="4"
         required
-        name="why_applying"
-      ></textarea>
+        name="why_applying"></textarea>
     </div>
 
     <!-- Submit Button -->

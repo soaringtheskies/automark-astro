@@ -8,5 +8,10 @@ page_header:
   title: "Stay Informed With Our <strong>Latest News</strong>"
   featured_post: "human-touch-ai-marketing"
 
-latest_section_title: "Latest Content From Us"
+featured_post:
+  enable: true
+
+latest_posts:
+  enable: true
+  title: "Latest Content From Us"
 ---

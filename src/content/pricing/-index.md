@@ -82,6 +82,7 @@ plans:
         included: true
 
 comparison:
+  enable: true
   badge: "Plan Matrix"
   title: "Pricing Plans <strong>Comparison</strong>"
   headers:

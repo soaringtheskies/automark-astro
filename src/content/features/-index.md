@@ -18,10 +18,12 @@ banner:
   image: "/images/automark_dashboard.png"
 
 partners:
+  enable: true
   badge: "Trusted Partners"
   title: "Trusted by <strong>50,000+</strong> businesses worldwide"
 
 smart_platform:
+  enable: true
   title: "Automate every part of your <br /> marketing with <strong>one smart platform.</strong>"
   cards:
     - title: "Automated Marketing"
@@ -46,37 +48,39 @@ smart_platform:
       classNames: ""
 
 service_features:
-  - title: "We provide features for <strong>your product</strong>"
-    image: "/images/features/service-feature-1.svg"
-    reverse: false
-    items:
-      - icon: "fa-solid fa-zap"
-        title: "Lightning Fast Performance"
-        content: "Optimized for speed with response times under 100ms."
-      - icon: "fa-solid fa-brain"
-        title: "AI-Powered Intelligence"
-        content: "Machine learning algorithms that learn your business patterns."
-      - icon: "fa-solid fa-lock"
-        title: "Enterprise Security"
-        content: "Bank-level encryption and GDPR compliance included."
-      - icon: "fa-solid fa-cubes"
-        title: "Modular Architecture"
-        content: "Scale features independently based on your needs."
+  enable: true
+  items:
+    - title: "We provide features for <strong>your product</strong>"
+      image: "/images/features/service-feature-1.svg"
+      reverse: false
+      items:
+        - icon: "fa-solid fa-zap"
+          title: "Lightning Fast Performance"
+          content: "Optimized for speed with response times under 100ms."
+        - icon: "fa-solid fa-brain"
+          title: "AI-Powered Intelligence"
+          content: "Machine learning algorithms that learn your business patterns."
+        - icon: "fa-solid fa-lock"
+          title: "Enterprise Security"
+          content: "Bank-level encryption and GDPR compliance included."
+        - icon: "fa-solid fa-cubes"
+          title: "Modular Architecture"
+          content: "Scale features independently based on your needs."
 
-  - title: "The reasons to prefer choosing <strong>our platform</strong>"
-    image: "/images/features/service-feature-2.svg"
-    reverse: true
-    items:
-      - icon: "fa-solid fa-chart-simple"
-        title: "Real time data"
-        content: "Get the data you need to make smarter decisions."
-      - icon: "fa-solid fa-rocket"
-        title: "Fast and Easy to use"
-        content: "Easily to convert API with just a few clicks."
-      - icon: "fa-solid fa-shield-halved"
-        title: "Safely Security"
-        content: "Your data is protected with advanced encryption."
-      - icon: "fa-solid fa-table-cells-large"
-        title: "Powerfull App"
-        content: "Provide simple and minimalist dashboard."
+    - title: "The reasons to prefer choosing <strong>our platform</strong>"
+      image: "/images/features/service-feature-2.svg"
+      reverse: true
+      items:
+        - icon: "fa-solid fa-chart-simple"
+          title: "Real time data"
+          content: "Get the data you need to make smarter decisions."
+        - icon: "fa-solid fa-rocket"
+          title: "Fast and Easy to use"
+          content: "Easily to convert API with just a few clicks."
+        - icon: "fa-solid fa-shield-halved"
+          title: "Safely Security"
+          content: "Your data is protected with advanced encryption."
+        - icon: "fa-solid fa-table-cells-large"
+          title: "Powerfull App"
+          content: "Provide simple and minimalist dashboard."
 ---

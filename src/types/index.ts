@@ -21,8 +21,10 @@ export type FaqSection = CollectionEntry<"faqSection">["data"];
 export type BrandsSection = CollectionEntry<"brandsSection">["data"];
 export type OurStorySection = CollectionEntry<"ourStorySection">["data"];
 export type TestimonialSection = CollectionEntry<"testimonialSection">["data"];
-export type ComparisonRowSection = CollectionEntry<"comparisonRowSection">["data"];
-export type BusinessNeedsSection = CollectionEntry<"businessNeedsSection">["data"];
+export type ComparisonRowSection =
+  CollectionEntry<"comparisonRowSection">["data"];
+export type BusinessNeedsSection =
+  CollectionEntry<"businessNeedsSection">["data"];
 
 // ─── Config File Types ────────────────────────────────────────────────────────
 
