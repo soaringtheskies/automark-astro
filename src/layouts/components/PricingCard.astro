@@ -8,10 +8,9 @@ interface Props {
   price: string;
   yearly_price: string;
   title: string;
-  isFeatured?: boolean;
+  is_featured?: boolean;
   offer_text?: string;
-  button_label?: string;
-  button_link?: string;
+  button: { enable: boolean; label: string; link: string };
   description?: string;
   features?: Feature[];
 }
@@ -19,10 +18,9 @@ const {
   price,
   yearly_price,
   title,
-  isFeatured = false,
+  is_featured = false,
   offer_text,
-  button_label,
-  button_link,
+  button,
   description,
   features,
 } = Astro.props;
@@ -30,10 +28,10 @@ const {
 ---
 
 <div
-  class={`py-10 px-7 rounded-3xl text-left relative ${isFeatured ? "bg-light/50 overflow-hidden" : "bg-light/80"}`}
+  class={`py-10 px-7 rounded-3xl text-left relative ${is_featured ? "bg-light/50 overflow-hidden" : "bg-light/80"}`}
 >
   {
-    isFeatured && (
+    is_featured && (
       <>
         <div class="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 grid place-items-center -z-10">
           <div class="size-160 bg-radial from-gradient-end to-transparent from-0% to-70% rounded-full" />
@@ -72,9 +70,11 @@ const {
   <h3 class="text-h6 text-text-white mb-5">{title}</h3>
   <p class="text-text-dark">{description}</p>
 
-  <a href={button_link} class="btn btn-primary w-full my-10 block text-center">
-    {button_label}
-  </a>
+  {button.enable && (
+    <a href={button.link} class="btn btn-primary w-full my-10 block text-center">
+      {button.label}
+    </a>
+  )}
 
   <div class="text-text-white font-bold mb-6">Features Included</div>
 

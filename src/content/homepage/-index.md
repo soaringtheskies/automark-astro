@@ -3,14 +3,16 @@ banner:
   title: "Scale Your Marketing Business on <strong>Autopilot</strong>"
   content: "The all-in-one marketing and sales platform designed to capture more leads, automate your follow-ups, and grow your revenue - all in one place."
   button_primary:
+    enable: true
     label: "Start Free Trial"
     link: "#"
   button_secondary:
+    enable: true
     label: "Book a Demo"
     link: "#"
 
 main_features:
-  title: "Are you tired of losing Marketing leads to the <strong>”Follow-up Gaps”</strong>"
+  title: "Are you tired of losing Marketing leads to the <strong>Follow-up Gap</strong>"
   content: "Automark's intuitive shared inbox makes it easy for team members to organize, prioritize and solve customer requests — all in a familiar interface."
   items:
     - "Wasted Ad Spend"
@@ -21,7 +23,7 @@ main_features:
     - "Slow Response Times"
 
 value_props:
-  title: "Are you tired of losing Marketing leads to the <strong>”Follow-up Gaps”</strong>"
+  title: "Are you tired of losing Marketing leads to the <strong>Follow-up Gap</strong>"
   content: "Automark's intuitive shared inbox makes it easy for team members to organize, prioritize and solve customer requests — all in a familiar interface."
   items:
     - logo: "/images/value-proposition/values-icon-1.svg"
@@ -55,31 +57,31 @@ our_features:
   items:
     - logo: "/images/features-menu-icon.svg"
       title: "Revenue Growth Tools"
-      isStarred: false
+      is_starred: false
     - logo: "/images/features-menu-icon.svg"
       title: "Workflow Automation"
-      isStarred: false
+      is_starred: false
     - logo: "/images/features-menu-icon.svg"
       title: "Conversion Optimize"
-      isStarred: false
+      is_starred: false
     - logo: "/images/features-menu-icon.svg"
       title: "Customer Retention"
-      isStarred: false
+      is_starred: false
     - logo: "/images/features-menu-icon.svg"
       title: "Revenue Growth Tools"
-      isStarred: true
+      is_starred: true
     - logo: "/images/features-menu-icon.svg"
       title: "Workflow Automation"
-      isStarred: false
+      is_starred: false
     - logo: "/images/features-menu-icon.svg"
       title: "Conversion Optimize"
-      isStarred: false
+      is_starred: false
     - logo: "/images/features-menu-icon.svg"
       title: "Customer Retention"
-      isStarred: false
+      is_starred: false
     - logo: "/images/features-menu-icon.svg"
       title: "Revenue Growth Tools"
-      isStarred: false
+      is_starred: false
 
 testimonial_quote:
   title: "We know you didn't start your [Niche] business to Become a dull-time <strong>Software Engineer</strong>"
@@ -112,6 +114,7 @@ growth_process:
       title: "3. Scale on Autopilot"
       content: "Watch your leads, appointments, and revenue grow as our automation handles the follow-up and nurturing for you."
   button:
+    enable: true
     label: "Start Your 14-Days Free Trial"
     link: "#"
 
@@ -145,7 +148,11 @@ lead_generation:
     - "<strong>Automation Quick-Wins:</strong> 3 workflows you can set up today to start booking more appointments."
     - "<strong>The Tech Stack Check:</strong> A list of the only tools you actually need to scale."
   image: "/images/ebook.png"
-  button_label: "Get Your Free Checklist"
+  button:
+    enable: true
+    label: "Get Free Checklist"
+    link: "#"
+
 
 pricing:
   title: "Our Affordable <strong>Pricing Plans</strong>"

@@ -43,29 +43,29 @@ core_values:
   items:
     - logo: "/images/icons/innovation.svg"
       title: "Revenue Growth Tools"
-      isStarred: false
+      is_starred: false
     - logo: "/images/icons/security.svg"
       title: "Integrity"
-      isStarred: false
+      is_starred: false
     - logo: "/images/icons/collaboration.svg"
       title: "Collaboration"
-      isStarred: false
+      is_starred: false
     - logo: "/images/icons/result-driven.svg"
       title: "Results-Driven"
-      isStarred: false
+      is_starred: false
     - logo: "/images/icons/creativity.svg"
       title: "Creativity"
-      isStarred: true
+      is_starred: true
     - logo: "/images/icons/innovation.svg"
       title: "Client-Centric"
-      isStarred: false
+      is_starred: false
     - logo: "/images/icons/membership.svg"
       title: "Membership Sites"
-      isStarred: false
+      is_starred: false
     - logo: "/images/icons/starred-folder.svg"
       title: "Appointment Booking"
-      isStarred: false
+      is_starred: false
     - logo: "/images/features-menu-icon.svg"
       title: "Surveys & Forms"
-      isStarred: false
+      is_starred: false
 ---

@@ -7,14 +7,16 @@ import ComparisonRow from "@/layouts/components/ComparisonRow.astro";
 import Faq from "@/layouts/components/Faq.astro";
 import GradientBlob from "@/layouts/components/GradientBlob.astro";
 import ImageMod from "@/layouts/components/ImageMod.astro";
-import SmartPlatformCard from "@/layouts/components/SmartPlatformCard.astro";
-import { getEntry } from "astro:content";
+import ShowcaseCard from "@/layouts/components/ShowcaseCard.astro";
+import { getListPage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { Features } from "@/types";
 
-const features = await getEntry("features", "-index");
-const d = features!.data as any;
+const features = await getListPage("features", "-index");
+const featuresData: Features = features.data;
 ---
 
-<Base title={d.title} meta_title={d.meta_title} description={d.description}>
+<Base title={featuresData.title} meta_title={featuresData.meta_title} description={featuresData.description}>
   <!-- Banner -->
   <section class="section-ph relative overflow-hidden pb-20">
     <div class="container relative">
@@ -27,21 +29,21 @@ const d = features!.data as any;
         <div class="mb-20 text-center relative">
           <h1
             class="mb-8 lg:col-9 mx-auto text-h3 lg:text-h1 hasHighlight"
-            set:html={d.banner.title}
+            set:html={markdownify(featuresData.banner.title)}
           />
-          <p class="mb-10 lg:col-6 mx-auto text-lg">{d.banner.content}</p>
+          <p class="mb-10 lg:col-6 mx-auto text-lg">{featuresData.banner.content}</p>
           <div class="flex gap-4 justify-center items-center flex-wrap">
-            <a class="btn btn-primary" href={d.banner.button_primary.link}
-              >{d.banner.button_primary.label}</a
+            <a class="btn btn-primary" href={featuresData.banner.button_primary.link}
+              >{featuresData.banner.button_primary.label}</a
             >
-            <a class="btn btn-outline" href={d.banner.button_secondary.link}
-              >{d.banner.button_secondary.label}</a
+            <a class="btn btn-outline" href={featuresData.banner.button_secondary.link}
+              >{featuresData.banner.button_secondary.label}</a
             >
           </div>
         </div>
         <div class="col-12">
           <ImageMod
-            src={d.banner.image}
+            src={featuresData.banner.image}
             alt="Automark Dashboard"
             class="w-full"
           />
@@ -66,13 +68,13 @@ const d = features!.data as any;
     <div class="container">
       <div class="section-container">
         <div class="section-intro centralize">
-          <h2 class="title hasHighlight" set:html={d.smart_platform.title} />
+          <h2 class="title hasHighlight" set:html={markdownify(featuresData.smart_platform.title)} />
         </div>
         <div class="section-content">
           <div class="grid md:grid-cols-2 xl:grid-cols-3 grid-flow-dense gap-7">
             {
-              d.smart_platform.cards.map((card: any) => (
-                <SmartPlatformCard
+              featuresData.smart_platform.cards.map((card: any) => (
+                <ShowcaseCard
                   title={card.title}
                   subtitle={card.subtitle}
                   image={card.image}
@@ -89,7 +91,7 @@ const d = features!.data as any;
 
   <!-- Service Features (alternating) -->
   {
-    d.service_features.map((feature: any, index: number) => (
+    featuresData.service_features.map((feature: any, index: number) => (
       <section
         class={
           index === 0
@@ -105,7 +107,7 @@ const d = features!.data as any;
               >
                 <h2
                   class="text-h3-sm lg:text-h2 font-bold hasHighlight mb-9 lg:mb-12"
-                  set:html={feature.title}
+                  set:html={markdownify(feature.title)}
                 />
 
                 <div class="grid sm:grid-cols-2 gap-8 lg:gap-10">

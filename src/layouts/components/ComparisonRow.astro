@@ -1,23 +1,24 @@
 ---
 import ImageMod from "@/layouts/components/ImageMod.astro";
-import { getEntry } from "astro:content";
+import { getListPage } from "@/lib/contentParser.astro";
+import type { ComparisonRowSection } from "@/types";
 
-const data = await getEntry("comparisonRowSection", "comparison-row");
-if (!data || !data.data.enable) return;
-const d = data.data;
+const comparisonEntry = await getListPage("comparisonRowSection", "comparison-row");
+const comparisonData: ComparisonRowSection = comparisonEntry.data;
+if (!comparisonData.enable) return;
 ---
 
 {
-  d.enable && (
+  comparisonData.enable && (
     <section class="section relative isolate overflow-x-hidden">
       <div class="container">
         <div class="section-container">
           <div class="section-intro centralize">
-            <h2 class="title hasHighlight" set:html={d.title} />
+            <h2 class="title hasHighlight" set:html={comparisonData.title} />
           </div>
           <div class="section-content">
             <div class="flex flex-col gap-y-5 px-4">
-              {d.items.map(({ title, price, images }: any) => (
+              {comparisonData.items.map(({ title, price, images }) => (
                 <div class="relative max-lg:border max-lg:border-border max-lg:rounded-4xl max-lg:py-8 max-lg:corner-squircle">
                   <div class="flex items-center flex-col lg:flex-row lg:justify-between w-full gap-y-8">
                     <div class="bg-[#070710] border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2 max-w-70">
@@ -41,7 +42,7 @@ const d = data.data;
                         <span class="text-secondary font-secondary font-bold text-h6">
                           {price}
                         </span>{" "}
-                        {d.price_suffix ?? "/Per Month"}
+                        {comparisonData.price_suffix ?? "/Per Month"}
                       </span>
                     </div>
                   </div>

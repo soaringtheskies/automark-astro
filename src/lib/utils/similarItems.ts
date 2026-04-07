@@ -1,5 +1,12 @@
-// similar products
-const similarItems = (currentItem: any, allItems: any[]) => {
+import type { CollectionEntry } from "astro:content";
+
+type BlogEntry = CollectionEntry<"blog">;
+
+// Returns blog posts related to the current post by categories and tags
+const similarItems = (
+  currentItem: BlogEntry,
+  allItems: BlogEntry[],
+): BlogEntry[] => {
   let categories: string[] = [];
   let tags: string[] = [];
 
@@ -14,12 +21,12 @@ const similarItems = (currentItem: any, allItems: any[]) => {
   }
 
   // filter by categories
-  const filterByCategories = allItems.filter((item: any) =>
+  const filterByCategories = allItems.filter((item) =>
     categories.find((category) => item.data.categories.includes(category)),
   );
 
   // filter by tags
-  const filterByTags = allItems.filter((item: any) =>
+  const filterByTags = allItems.filter((item) =>
     tags.find((tag) => item.data.tags.includes(tag)),
   );
 

@@ -1,24 +1,25 @@
 ---
-import BnCard from "./BnCard.astro";
-import { getEntry } from "astro:content";
+import StepCard from "./StepCard.astro";
+import { getListPage } from "@/lib/contentParser.astro";
+import type { BusinessNeedsSection } from "@/types";
 
-const data = await getEntry("businessNeedsSection", "business-needs");
-if (!data || !data.data.enable) return;
-const d = data.data;
+const bnEntry = await getListPage("businessNeedsSection", "business-needs");
+const bnData: BusinessNeedsSection = bnEntry.data;
+if (!bnData.enable) return;
 ---
 
 {
-  d.enable && (
+  bnData.enable && (
     <section class="section relative isolate overflow-x-hidden">
       <div class="container">
         <div class="section-container">
           <div class="section-intro centralize">
-            <h2 class="title hasHighlight" set:html={d.title} />
+            <h2 class="title hasHighlight" set:html={bnData.title} />
           </div>
           <div class="section-content">
             <div class="flex flex-col gap-y-2 px-4">
-              {d.items.map((item: any) => (
-                <BnCard
+              {bnData.items.map((item) => (
+                <StepCard
                   image={item.image}
                   number={item.number}
                   title={item.title}

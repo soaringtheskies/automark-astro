@@ -3,13 +3,11 @@ import ImageMod from "@/layouts/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import Badge from "@/layouts/components/Badge.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
-import { getCollection } from "astro:content";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 
 export async function getStaticPaths() {
-  const caseStudies = await getCollection(
-    "caseStudy",
-    ({ id }) => !id.startsWith("-index"),
-  );
+  const caseStudies = await getSinglePage("caseStudy");
   return caseStudies.map((study) => ({
     params: { single: study.id },
     props: { study },
@@ -17,14 +15,14 @@ export async function getStaticPaths() {
 }
 
 const { study } = Astro.props;
-const d = study.data;
+const studyData = study.data;
 ---
 
 <Base
-  title={d.title}
-  meta_title={d.meta_title}
-  description={d.description}
-  image={d.hero_image}
+  title={studyData.title}
+  meta_title={studyData.meta_title}
+  description={studyData.description}
+  image={studyData.hero_image}
 >
   <!-- Page Header (same style as other pages) -->
   <section class="section-ph pb-8 relative overflow-hidden">
@@ -35,7 +33,7 @@ const d = study.data;
         </div>
       </div>
       <div class="lg:max-w-4xl mx-auto text-center relative">
-        <h1 class="mb-0 text-h3 lg:text-h1 hasHighlight" set:html={d.title} />
+        <h1 class="mb-0 text-h3 lg:text-h1 hasHighlight" set:html={markdownify(studyData.title)} />
       </div>
     </div>
     <div
@@ -52,8 +50,8 @@ const d = study.data;
         class="relative rounded-3xl overflow-hidden bg-light aspect-video lg:aspect-1000/520"
       >
         <ImageMod
-          src={d.hero_image!}
-          alt={d.title}
+          src={studyData.hero_image!}
+          alt={studyData.title}
           class="w-full h-full object-cover opacity-80"
         />
       </div>
@@ -65,7 +63,7 @@ const d = study.data;
     <div class="container">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {
-          d?.meta?.map((item: any) => (
+          studyData?.meta?.map((item: any) => (
             <div class="bg-light rounded-2xl p-6 py-12.5 text-center">
               <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                 <ImageMod
@@ -91,15 +89,15 @@ const d = study.data;
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="relative">
           <ImageMod
-            src={d?.overview?.image!}
+            src={studyData?.overview?.image!}
             alt="Overview"
             class="w-full h-auto rounded-3xl object-cover aspect-630/418"
           />
         </div>
         <div>
-          <h2 class="text-h3 lg:text-h2 mb-6">{d?.overview?.heading}</h2>
+          <h2 class="text-h3 lg:text-h2 mb-6">{studyData?.overview?.heading}</h2>
           {
-            d?.overview?.paragraphs?.map((p: string) => (
+            studyData?.overview?.paragraphs?.map((p: string) => (
               <p class="text-text mb-4">{p}</p>
             ))
           }
@@ -114,9 +112,9 @@ const d = study.data;
       <div class="container">
         <div class="grid lg:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 class="text-h3 lg:text-h2 mb-6">{d?.challenges?.heading}</h2>
+            <h2 class="text-h3 lg:text-h2 mb-6">{studyData?.challenges?.heading}</h2>
             {
-              d?.challenges?.paragraphs?.map((p: string) => (
+              studyData?.challenges?.paragraphs?.map((p: string) => (
                 <p class="text-text mb-4">{p}</p>
               ))
             }
@@ -131,20 +129,20 @@ const d = study.data;
               </svg>
             </div>
             <blockquote class="text-h6 text-text-white mb-8">
-              {d?.challenges?.quote}
+              {studyData?.challenges?.quote}
             </blockquote>
             <div class="flex items-center gap-4">
               <ImageMod
-                src={d?.challenges?.quote_author?.avatar!}
-                alt={d?.challenges?.quote_author?.name!}
+                src={studyData?.challenges?.quote_author?.avatar!}
+                alt={studyData?.challenges?.quote_author?.name!}
                 class="size-12 rounded-full object-cover"
               />
               <div>
                 <p class="text-text-white font-semibold">
-                  {d?.challenges?.quote_author?.name}
+                  {studyData?.challenges?.quote_author?.name}
                 </p>
                 <p class="text-text text-sm">
-                  {d?.challenges?.quote_author?.designation}
+                  {studyData?.challenges?.quote_author?.designation}
                 </p>
               </div>
             </div>
@@ -158,11 +156,11 @@ const d = study.data;
       <div class="container">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div class="order-2 lg:order-1">
-            <h2 class="text-h3 lg:text-h2 mb-6">{d?.solution?.heading}</h2>
-            <p class="text-text mb-6">{d?.solution?.content}</p>
+            <h2 class="text-h3 lg:text-h2 mb-6">{studyData?.solution?.heading}</h2>
+            <p class="text-text mb-6">{studyData?.solution?.content}</p>
             <ul class="space-y-4">
               {
-                d?.solution?.items?.map((item: string) => (
+                studyData?.solution?.items?.map((item: string) => (
                   <li class="flex items-start gap-3">
                     <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
                       <svg
@@ -188,7 +186,7 @@ const d = study.data;
           </div>
           <div class="order-1 lg:order-2">
             <ImageMod
-              src={d?.solution?.image!}
+              src={studyData?.solution?.image!}
               alt="Solution"
               class="w-full h-auto rounded-3xl object-cover aspect-630/420"
             />
@@ -202,16 +200,16 @@ const d = study.data;
       <div class="container">
         <div class="grid lg:grid-cols-2 gap-12 items-start mb-16">
           <div>
-            <h2 class="text-h3 lg:text-h2 mb-6">{d?.results?.heading}</h2>
+            <h2 class="text-h3 lg:text-h2 mb-6">{studyData?.results?.heading}</h2>
             {
-              d?.results?.paragraphs
+              studyData?.results?.paragraphs
                 ?.slice(0, 1)
                 .map((p: string) => <p class="text-text mb-4">{p}</p>)
             }
           </div>
           <div>
             {
-              d?.results?.paragraphs
+              studyData?.results?.paragraphs
                 ?.slice(1)
                 .map((p: string) => <p class="text-text">{p}</p>)
             }
@@ -220,7 +218,7 @@ const d = study.data;
         <!-- Metrics -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {
-            d?.results?.metrics?.map((metric: any) => (
+            studyData?.results?.metrics?.map((metric: any) => (
               <div class="bg-light rounded-3xl p-8 py-16 text-center">
                 <div class="text-h2 leading-none font-bold font-secondary text-text-white mb-2">
                   {metric.value}

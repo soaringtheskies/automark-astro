@@ -8,9 +8,11 @@ banner:
   title: "Features That Turn <br /> Attention <strong>Into Revenue</strong>"
   content: "Automark is your AI-powered marketing and sales engine — built to attract, engage, convert, and retain customers on autopilot."
   button_primary:
+    enable: true
     label: "Start Free Trial"
     link: "#"
   button_secondary:
+    enable: true
     label: "Book a Demo"
     link: "#"
   image: "/images/automark_dashboard.png"

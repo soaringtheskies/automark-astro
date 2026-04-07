@@ -1,8 +1,12 @@
 ---
 import FeatureCard from "@/components/FeatureCard.astro";
+import type { OurFeaturesSection } from "@/types";
 
-const {our_features} = Astro.props
+interface Props {
+  our_features: OurFeaturesSection;
+}
 
+const { our_features } = Astro.props;
 ---
 
  <section class="section-box mx-5 relative isolate overflow-hidden">
@@ -17,11 +21,11 @@ const {our_features} = Astro.props
             class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 border-r border-text-light/5 border-b"
           >
             {
-              our_features.items.map((item: any) => (
+              our_features.items.map((item) => (
                 <FeatureCard
                   logo={item.logo}
                   title={item.title}
-                  isStarred={item.isStarred}
+                  is_starred={item.is_starred}
                 />
               ))
             }

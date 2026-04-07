@@ -4,20 +4,19 @@ import Badge from "@/layouts/components/Badge.astro";
 import TestimonialCard from "@/layouts/components/TestimonialCard.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
 import CaseStudyCard from "@/layouts/components/CaseStudyCard.astro";
-import { getEntry, getCollection } from "astro:content";
+import { getSinglePage, getListPage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 import Testimonial from "@/partials/Testimonial.astro";
+import type { CaseStudy } from "@/types";
 
-const caseStudyList = await getEntry("caseStudy", "-index");
-const d = caseStudyList!.data as any;
+const caseStudyList = await getListPage("caseStudy", "-index");
+const pageData: CaseStudy = caseStudyList.data;
 
 // Get all individual case study entries
-const caseStudies = await getCollection(
-  "caseStudy",
-  ({ id }) => !id.startsWith("-index"),
-);
+const caseStudies = await getSinglePage("caseStudy");
 ---
 
-<Base title={d.title} meta_title={d.meta_title} description={d.description}>
+<Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
   <!-- Page Header -->
   <section class="section-ph pb-20 relative overflow-hidden">
     <div class="container relative">
@@ -30,9 +29,9 @@ const caseStudies = await getCollection(
         <div class="mb-20 text-center relative">
           <h1
             class="mb-6 lg:col-9 mx-auto text-h3 lg:text-h1 hasHighlight"
-            set:html={d.page_header.title}
+            set:html={markdownify(pageData.page_header!.title)}
           />
-          <p class="mb-10 lg:col-6 mx-auto text-lg">{d.page_header.content}</p>
+          <p class="mb-10 lg:col-6 mx-auto text-lg">{pageData.page_header!.content}</p>
         </div>
       </div>
     </div>
@@ -60,10 +59,10 @@ const caseStudies = await getCollection(
               badge={study.data.badge!}
               title={study.data.title}
               description={study.data.description!}
-              stat1Value={study.data.stat1Value!}
-              stat1Label={study.data.stat1Label!}
-              stat2Value={study.data.stat2Value!}
-              stat2Label={study.data.stat2Label!}
+              stat1Value={study.data.stat_1_value}
+              stat1Label={study.data.stat_1_label}
+              stat2Value={study.data.stat_2_value}
+              stat2Label={study.data.stat_2_label}
             />
           ))
         }

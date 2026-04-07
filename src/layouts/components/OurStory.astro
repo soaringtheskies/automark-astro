@@ -1,17 +1,18 @@
 ---
 import ImageMod from "@/layouts/components/ImageMod.astro";
-import { getEntry } from "astro:content";
+import { getListPage } from "@/lib/contentParser.astro";
+import type { OurStorySection } from "@/types";
 
-const ourStory = await getEntry("ourStorySection", "our-story");
-if (!ourStory || !ourStory.data.enable) return;
-const d = ourStory.data;
+const ourStoryEntry = await getListPage("ourStorySection", "our-story");
+const ourStoryData: OurStorySection = ourStoryEntry.data;
+if (!ourStoryData.enable) return;
 ---
 
 <section class="section overflow-hidden">
   <div class="container">
     <div class="section-container">
       <div class="section-intro centralize">
-        <h2 class="title hasHighlight lg:col-8 mx-auto" set:html={d.title} />
+        <h2 class="title hasHighlight lg:col-8 mx-auto" set:html={ourStoryData.title} />
       </div>
       <div class="section-content">
         <hr
@@ -27,24 +28,24 @@ const d = ourStory.data;
                   width={211}
                   height={211}
                   class="size-52 rounded-full mb-7"
-                  src={d.ceo.image}
-                  alt={d.ceo.name}
+                  src={ourStoryData.ceo.image}
+                  alt={ourStoryData.ceo.name}
                 />
-                <p class="text-text-white font-semibold">{d.ceo.name}</p>
-                <p class="text-text-dark text-sm">{d.ceo.role}</p>
+                <p class="text-text-white font-semibold">{ourStoryData.ceo.name}</p>
+                <p class="text-text-dark text-sm">{ourStoryData.ceo.role}</p>
               </div>
               <div class="text-h6 mt-12 mb-17 text-left mx-auto">
-                <div set:html={d.letter} />
+                <div set:html={ourStoryData.letter} />
               </div>
 
               {
-                d.letter_points && d.letter_points.length > 0 && (
+                ourStoryData.letter_points && ourStoryData.letter_points.length > 0 && (
                   <>
                     <div class="text-h6 text-text-white font-semibold text-center mb-7">
-                      {d.letter_points_heading ?? "Here's how we do it:"}
+                      {ourStoryData.letter_points_heading ?? "Here's how we do it:"}
                     </div>
                     <div class="flex flex-col gap-y-7 relative vertical-bg-line ">
-                      {d.letter_points.map((point: string) => (
+                      {ourStoryData.letter_points.map((point) => (
                         <div class="bg-linear-to-tl from-border to-body border border-border px-8 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
                           <span class="font-semibold text-text-white text-lg">
                             {point}
@@ -56,13 +57,13 @@ const d = ourStory.data;
                 )
               }
 
-              {d.letter_p2 && <p class="mt-15 text-h6">{d.letter_p2}</p>}
+              {ourStoryData.letter_p2 && <p class="mt-15 text-h6">{ourStoryData.letter_p2}</p>}
 
               {
-                d.button && d.button.link && (
+                ourStoryData.button && ourStoryData.button.enable && ourStoryData.button.link && (
                   <div class="mt-12 flex justify-center">
-                    <a href={d.button.link} class="btn btn-primary py-4">
-                      {d.button.label}
+                    <a href={ourStoryData.button.link} class="btn btn-primary py-4">
+                      {ourStoryData.button.label}
                     </a>
                   </div>
                 )

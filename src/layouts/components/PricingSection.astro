@@ -2,7 +2,8 @@
 import Badge from "./Badge.astro";
 import GradientBlob from "./GradientBlob.astro";
 import PricingCard from "./PricingCard.astro";
-import { getEntry } from "astro:content";
+import { getListPage } from "@/lib/contentParser.astro";
+import type { Pricing } from "@/types";
 
 interface Props {
   /** Override the section badge text */
@@ -16,13 +17,12 @@ interface Props {
 
 const { badge, title, content, isHome = true } = Astro.props;
 
-const pricingData = await getEntry("pricing", "-index");
-if (!pricingData) return;
-const d = pricingData.data as any;
+const pricingEntry = await getListPage("pricing", "-index");
+const pricingData: Pricing = pricingEntry.data;
 
-const sectionBadge = badge ?? d.page_header?.badge ?? "Pricing";
-const sectionTitle = title ?? d.page_header?.title ?? "";
-const sectionContent = content ?? d.page_header?.content ?? "";
+const sectionBadge = badge ?? pricingData.page_header?.badge ?? "Pricing";
+const sectionTitle = title ?? pricingData.page_header?.title ?? "";
+const sectionContent = content ?? pricingData.page_header?.content ?? "";
 ---
 
 <section
@@ -50,23 +50,22 @@ const sectionContent = content ?? d.page_header?.content ?? "";
               class="hidden"
             />
             <label for="pricing-toggle" class="price-toggler-btn active"
-              >{d.toggler?.monthly_label ?? "Monthly"}</label
+              >{pricingData.toggler?.monthly_label ?? "Monthly"}</label
             >
             <label for="pricing-toggle" class="price-toggler-btn"
-              >{d.toggler?.yearly_label ?? "Yearly"}</label
+              >{pricingData.toggler?.yearly_label ?? "Yearly"}</label
             >
           </div>
           <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-7 relative z-10">
             {
-              d.plans.map((plan: any) => (
+              pricingData.plans.map((plan) => (
                 <PricingCard
                   price={plan.price}
                   yearly_price={plan.yearly_price}
                   title={plan.title}
-                  isFeatured={plan.isFeatured}
-                  button_label={plan.button_label}
+                  is_featured={plan.is_featured}
                   offer_text={plan.offer_text}
-                  button_link={plan.button_link}
+                  button={plan.button}
                   description={plan.description}
                   features={plan.features}
                 />

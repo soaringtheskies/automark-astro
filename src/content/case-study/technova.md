@@ -5,16 +5,16 @@ description: "How TechNova used Automark's automation to triple their revenue in
 date: 2024-02-15
 draft: false
 
-hero_image: "/images/case-study-hero.png"
-thumbnail: "/images/case-study-hero.png"
+hero_image: "/images/case-study-hero-2.png"
+thumbnail: "/images/case-study-her-2o.png"
 
 logo: "/images/brands/dropbox-logo-svg-150px.svg"
 company: "Dropbox"
 badge: "SaaS"
-stat1Value: "30%"
-stat1Label: "Increase in website traffic"
-stat2Value: "50%"
-stat2Label: "Target keywords ranked"
+stat_1_value: "30%"
+stat_1_label: "Increase in website traffic"
+stat_2_value: "50%"
+stat_2_label: "Target keywords ranked"
 
 meta:
   - label: "Client"

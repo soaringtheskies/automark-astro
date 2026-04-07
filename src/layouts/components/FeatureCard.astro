@@ -3,9 +3,9 @@ import ImageMod from "@/layouts/components/ImageMod.astro";
 interface Props {
   logo: string;
   title: string;
-  isStarred: boolean;
+  is_starred: boolean;
 }
-const { logo, title, isStarred } = Astro.props;
+const { logo, title, is_starred } = Astro.props;
 ---
 
 <div
@@ -24,7 +24,7 @@ const { logo, title, isStarred } = Astro.props;
       "bottom-0 right-0 translate-x-1/2 translate-y-1/2",
     ].map((pos) => (
       <svg
-        data-is-starred={String(isStarred)}
+        data-is-starred={String(is_starred)}
         class={`absolute z-10 ${pos} hidden`}
         width="23"
         height="23"

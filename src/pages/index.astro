@@ -1,7 +1,7 @@
 ---
 import ImageMod from "@/layouts/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
-import VpCard from "@/layouts/components/VpCard.astro";
+import ValueCard from "@/layouts/components/ValueCard.astro";
 import FeatureCard from "@/layouts/components/FeatureCard.astro";
 import BusinessNeeds from "@/layouts/components/BusinessNeeds.astro";
 import ComparisonRow from "@/layouts/components/ComparisonRow.astro";
@@ -13,12 +13,18 @@ import OurStory from "@/layouts/components/OurStory.astro";
 import Faq from "@/layouts/components/Faq.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
 import VideoShowcase from "@/layouts/components/VideoShowcase.astro";
-import { getEntry } from "astro:content";
+import { getListPage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 import Testimonial from "@/partials/Testimonial.astro";
 import Features from "@/partials/Features.astro";
+import type { Homepage } from "@/types";
+import config from "@/config/config.json";
 
-const homepage = await getEntry("homepage", "-index");
-const d = homepage!.data as any;
+const {
+  params: { checklist_form_action },
+} = config;
+const homepage = await getListPage("homepage", "-index");
+const homepageData: Homepage = homepage.data;
 ---
 
 <Base>
@@ -34,25 +40,25 @@ const d = homepage!.data as any;
         <div class="mb-20 text-center relative">
           <h1
             class="mb-8 lg:col-9 mx-auto text-h3 lg:text-h1 hasHighlight"
-            set:html={d.banner.title}
+            set:html={markdownify(homepageData.banner.title)}
           />
-          <p class="mb-10 lg:col-6 mx-auto">{d.banner.content}</p>
+          <p class="mb-10 lg:col-6 mx-auto">{homepageData.banner.content}</p>
           <div class="flex gap-4 justify-center items-center flex-wrap">
             <a
               class="btn btn-primary"
               target="_blank"
               rel="noopener noreferrer"
-              href={d.banner.button_primary.link}
+              href={homepageData.banner.button_primary.link}
             >
-              {d.banner.button_primary.label}
+              {homepageData.banner.button_primary.label}
             </a>
             <a
               class="btn btn-outline"
               target="_blank"
               rel="noopener noreferrer"
-              href={d.banner.button_secondary.link}
+              href={homepageData.banner.button_secondary.link}
             >
-              {d.banner.button_secondary.label}
+              {homepageData.banner.button_secondary.label}
             </a>
           </div>
         </div>
@@ -222,37 +228,42 @@ const d = homepage!.data as any;
     <div class="container">
       <div class="section-container">
         <div class="section-intro centralize">
-          <h2 class="title hasHighlight" set:html={d.main_features.title} />
-          <p class="subtitle">{d.main_features.content}</p>
+          <h2
+            class="title hasHighlight"
+            set:html={markdownify(homepageData.main_features.title)}
+          />
+          <p class="subtitle">{homepageData.main_features.content}</p>
         </div>
         <div class="section-content">
           <div class="feature-items-group mb-9">
             {
-              d.main_features.items.slice(0, 3).map((text: string) => (
-                <div class="bg-[#070710] border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
-                  <svg
-                    class="shrink-0"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.99999 1.04163C14.9476 1.04163 18.9583 5.05241 18.9583 9.99996C18.9583 14.9475 14.9476 18.9583 9.99999 18.9583C5.05244 18.9583 1.04166 14.9475 1.04166 9.99996C1.04166 5.05241 5.05244 1.04163 9.99999 1.04163ZM8.02571 6.8538C7.69841 6.58685 7.2159 6.6057 6.9108 6.91077C6.60581 7.21587 6.5869 7.6984 6.85383 8.02568L6.9108 8.08915L8.82157 9.99996L6.91161 11.9108C6.5863 12.2362 6.58619 12.7638 6.91161 13.0891C7.23705 13.4143 7.76464 13.4145 8.09 13.0891L9.99999 11.1784L11.91 13.0891L11.9735 13.1461C12.3007 13.413 12.7832 13.394 13.0884 13.0891C13.3934 12.7842 13.4128 12.3015 13.1462 11.9742L13.0884 11.9108L11.1776 9.99996L13.0892 8.08915L13.1462 8.02568C13.4131 7.69839 13.3942 7.21587 13.0892 6.91077C12.7841 6.6057 12.3016 6.58685 11.9742 6.8538L11.9108 6.91077L9.99999 8.82154L8.08918 6.91077L8.02571 6.8538Z"
-                      fill="#FF5353"
-                    />
-                  </svg>
-                  <span class="font-semibold text-text-white text-lg">
-                    {text}
-                  </span>
-                </div>
-              ))
+              homepageData.main_features.items
+                .slice(0, 3)
+                .map((text: string) => (
+                  <div class="bg-[#070710] border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
+                    <svg
+                      class="shrink-0"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.99999 1.04163C14.9476 1.04163 18.9583 5.05241 18.9583 9.99996C18.9583 14.9475 14.9476 18.9583 9.99999 18.9583C5.05244 18.9583 1.04166 14.9475 1.04166 9.99996C1.04166 5.05241 5.05244 1.04163 9.99999 1.04163ZM8.02571 6.8538C7.69841 6.58685 7.2159 6.6057 6.9108 6.91077C6.60581 7.21587 6.5869 7.6984 6.85383 8.02568L6.9108 8.08915L8.82157 9.99996L6.91161 11.9108C6.5863 12.2362 6.58619 12.7638 6.91161 13.0891C7.23705 13.4143 7.76464 13.4145 8.09 13.0891L9.99999 11.1784L11.91 13.0891L11.9735 13.1461C12.3007 13.413 12.7832 13.394 13.0884 13.0891C13.3934 12.7842 13.4128 12.3015 13.1462 11.9742L13.0884 11.9108L11.1776 9.99996L13.0892 8.08915L13.1462 8.02568C13.4131 7.69839 13.3942 7.21587 13.0892 6.91077C12.7841 6.6057 12.3016 6.58685 11.9742 6.8538L11.9108 6.91077L9.99999 8.82154L8.08918 6.91077L8.02571 6.8538Z"
+                        fill="#FF5353"
+                      />
+                    </svg>
+                    <span class="font-semibold text-text-white text-lg">
+                      {text}
+                    </span>
+                  </div>
+                ))
             }
           </div>
           <div class="feature-items-group">
             {
-              d.main_features.items.slice(3).map((text: string) => (
+              homepageData.main_features.items.slice(3).map((text: string) => (
                 <div class="bg-[#070710] border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
                   <svg
                     class="shrink-0"
@@ -284,16 +295,23 @@ const d = homepage!.data as any;
     <div class="container">
       <div class="section-container">
         <div class="section-intro centralize">
-          <h2 class="title hasHighlight" set:html={d.value_props.title} />
-          <p class="subtitle">{d.value_props.content}</p>
+          <h2
+            class="title hasHighlight"
+            set:html={markdownify(homepageData.value_props.title)}
+          />
+          <p class="subtitle">{homepageData.value_props.content}</p>
         </div>
         <div class="section-content">
           <div
             class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 mb-9"
           >
             {
-              d.value_props.items.map((item: any) => (
-                <VpCard logo={item.logo} title={item.title} list={item.list} />
+              homepageData.value_props.items.map((item: any) => (
+                <ValueCard
+                  logo={item.logo}
+                  title={item.title}
+                  list={item.list}
+                />
               ))
             }
           </div>
@@ -304,7 +322,7 @@ const d = homepage!.data as any;
   </section>
 
   <!-- Features -->
-  <Features our_features={d.our_features} />
+  <Features our_features={homepageData.our_features} />
 
   <!-- Business Needs -->
   <BusinessNeeds />
@@ -317,7 +335,10 @@ const d = homepage!.data as any;
     <div class="container">
       <div class="section-container">
         <div class="section-intro centralize">
-          <h2 class="title hasHighlight" set:html={d.testimonial_quote.title} />
+          <h2
+            class="title hasHighlight"
+            set:html={markdownify(homepageData.testimonial_quote.title)}
+          />
         </div>
         <div class="section-content">
           <hr
@@ -327,7 +348,7 @@ const d = homepage!.data as any;
             <blockquote
               class="text-center text-h6 text-text-white p-6 xl:p-10 xl:px-15 border-x border-text/20"
             >
-              "{d.testimonial_quote.quote}"
+              "{homepageData.testimonial_quote.quote}"
             </blockquote>
             <div
               class="size-2 bg-text-white absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2"
@@ -366,16 +387,18 @@ const d = homepage!.data as any;
             <div class="lg:col-5">
               <div class="flex flex-col">
                 {
-                  d.single_testimonial.stats.map((stat: any, i: number) => (
-                    <div
-                      class={`blob-message relative z-${i + 1} ${i === 1 ? "lg:w-10/12" : ""}`}
-                    >
-                      <span class="font-semibold text-text-white">
-                        {stat.value}
-                      </span>{" "}
-                      {stat.label}
-                    </div>
-                  ))
+                  homepageData.single_testimonial.stats.map(
+                    (stat: any, i: number) => (
+                      <div
+                        class={`blob-message relative z-${i + 1} ${i === 1 ? "lg:w-10/12" : ""}`}
+                      >
+                        <span class="font-semibold text-text-white">
+                          {stat.value}
+                        </span>{" "}
+                        {stat.label}
+                      </div>
+                    ),
+                  )
                 }
               </div>
             </div>
@@ -395,7 +418,7 @@ const d = homepage!.data as any;
                   </svg>
                 </div>
                 <blockquote class="mt-10 text-h6 text-text-white">
-                  {d.single_testimonial.testimonial.quote}
+                  {homepageData.single_testimonial.testimonial.quote}
                 </blockquote>
                 <div class="mt-12.5 flex items-center">
                   <div class="text-text-dark">
@@ -403,16 +426,16 @@ const d = homepage!.data as any;
                       height={50}
                       width={50}
                       class="rounded-full size-12"
-                      src={d.single_testimonial.testimonial.avatar}
-                      alt={d.single_testimonial.testimonial.name}
+                      src={homepageData.single_testimonial.testimonial.avatar}
+                      alt={homepageData.single_testimonial.testimonial.name}
                     />
                   </div>
                   <div class="ml-2.5">
                     <h3 class="text-base font-primary font-semibold">
-                      {d.single_testimonial.testimonial.name}
+                      {homepageData.single_testimonial.testimonial.name}
                     </h3>
                     <p class="text-text-dark">
-                      {d.single_testimonial.testimonial.company}
+                      {homepageData.single_testimonial.testimonial.company}
                     </p>
                   </div>
                 </div>
@@ -446,12 +469,15 @@ const d = homepage!.data as any;
     <div class="container">
       <div class="section-container">
         <div class="section-intro centralize">
-          <h2 class="title hasHighlight" set:html={d.growth_process.title} />
+          <h2
+            class="title hasHighlight"
+            set:html={markdownify(homepageData.growth_process.title)}
+          />
         </div>
         <div class="section-content">
           <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-16">
             {
-              d.growth_process.items.map((item: any) => (
+              homepageData.growth_process.items.map((item: any) => (
                 <ProcessCard
                   logo={item.logo}
                   title={item.title}
@@ -460,11 +486,18 @@ const d = homepage!.data as any;
               ))
             }
           </div>
-          <div class="flex justify-center mt-10 xl:mt-18">
-            <a href={d.growth_process.button.link} class="btn btn-primary"
-              >{d.growth_process.button.label}</a
-            >
-          </div>
+          {
+            homepageData.growth_process.button.enable && (
+              <div class="flex justify-center mt-10 xl:mt-18">
+                <a
+                  href={homepageData.growth_process.button.link}
+                  class="btn btn-primary"
+                >
+                  {homepageData.growth_process.button.label}
+                </a>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>
@@ -511,12 +544,15 @@ const d = homepage!.data as any;
     <div class="container-sm">
       <div class="section-container">
         <div class="section-intro centralize">
-          <h2 class="title hasHighlight" set:html={d.integrations.title} />
+          <h2
+            class="title hasHighlight"
+            set:html={markdownify(homepageData.integrations.title)}
+          />
         </div>
         <div class="section-content">
           <div class="flex items-center justify-center flex-wrap [&>div]:-ml-5">
             {
-              d.integrations.items.map((item: any) => (
+              homepageData.integrations.items.map((item: any) => (
                 <div class="size-35 bg-text-light/10 backdrop-blur-xl rounded-full grid place-items-center">
                   <ImageMod
                     src={item.image}
@@ -541,23 +577,30 @@ const d = homepage!.data as any;
   <!-- Lead Generation -->
   <section class="section-box bg-transparent my-0 pb-0">
     <div class="container-sm">
-      <div class="section-container">
+      <div class="section-container pb-20">
         <div class="section-intro centralize">
-          <h2 class="title hasHighlight" set:html={d.lead_generation.title} />
+          <h2
+            class="title hasHighlight"
+            set:html={homepageData.lead_generation.title}
+          />
         </div>
         <div class="section-content">
           <div class="flex flex-col-reverse lg:flex-row gap-x-20 gap-y-10">
             <div class="lg:w-6/12">
               <h3 class="text-h5-sm font-bold mb-7">
-                {d.lead_generation.heading}
+                {homepageData.lead_generation.heading}
               </h3>
-              <p set:html={d.lead_generation.p1} />
+              <p
+                set:html={markdownify(homepageData.lead_generation.p1, true)}
+              />
               <br />
-              <p set:html={d.lead_generation.p2} />
+              <p
+                set:html={markdownify(homepageData.lead_generation.p2, true)}
+              />
               <ul class="green-tick-list [&>li]:mb-8 mt-10">
                 {
-                  d.lead_generation.list.map((item: string) => (
-                    <li set:html={item} />
+                  homepageData.lead_generation.list.map((item: string) => (
+                    <li set:html={markdownify(item)} />
                   ))
                 }
               </ul>
@@ -567,34 +610,33 @@ const d = homepage!.data as any;
                 class="bg-light rounded-4xl corner-squircle p-10 xl:px-7.5 xl:py-10"
               >
                 <ImageMod
-                  src={d.lead_generation.image}
+                  src={homepageData.lead_generation.image}
                   width={307}
                   height={190}
                   alt="ebook"
                   class="w-full max-w-76.75 mx-auto mb-12"
-                >
-                  <form action="#" class="">
-                    <div class="form-control">
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="Name"
-                        class="form-input w-full mb-5"
-                        required
-                      />
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
-                        class="form-input w-full mb-5"
-                        required
-                      />
-                      <button type="submit" class="btn btn-primary w-full"
-                        >{d.lead_generation.button_label}</button
-                      >
-                    </div>
-                  </form>
-                </ImageMod>
+                />
+                <form action="#" class="">
+                  <div class="form-control">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      class="form-input w-full mb-5"
+                      required
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email Address"
+                      class="form-input w-full mb-5"
+                      required
+                    />
+                    <button type="submit" class="btn btn-primary w-full"
+                      >Get Free Checklist</button
+                    >
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -604,16 +646,15 @@ const d = homepage!.data as any;
     <hr
       class="h-px bg-linear-to-r from-transparent from-10% via-text-white/50 to-90% to-transparent border-0"
     />
-
-    <!-- Pricing -->
   </section>
-  <PricingSection title={d.pricing.title} content={d.pricing.content} />
-  <!-- Testimonials -->
+  <PricingSection
+    title={homepageData.pricing.title}
+    content={homepageData.pricing.content}
+  />
+
   <Testimonial />
 
-  <!-- FAQ -->
   <Faq />
 
-  <!-- Call to Action -->
   <CallToAction />
 </Base>

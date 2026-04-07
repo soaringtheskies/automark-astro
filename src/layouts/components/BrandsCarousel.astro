@@ -1,19 +1,20 @@
 ---
-import { getEntry } from "astro:content";
+import { getListPage } from "@/lib/contentParser.astro";
+import type { BrandsSection } from "@/types";
 
-const brandsInfo = await getEntry("brandsSection", "brands");
-if (!brandsInfo || !brandsInfo.data.enable) return;
-const d = brandsInfo.data;
+const brandsInfo = await getListPage("brandsSection", "brands");
+const brandsData: BrandsSection = brandsInfo.data;
+if (!brandsData.enable) return;
 
-const brandUrls = d.images.map((img: any) => img.src);
+const brandUrls = brandsData.images.map((img) => img.src);
 ---
 
 {
-  d.enable && (
+  brandsData.enable && (
     <section class="section-sm pt-16 xl:pt-20">
       <div class="container">
         <div class="text-center mb-10">
-          <p class="text-text-light text-base" set:html={d.title} />
+          <p class="text-text-light text-base" set:html={brandsData.title} />
         </div>
         <div
           class="flex gap-10 xl:gap-x-16 flex-wrap justify-center items-center [&>img]:lg:h-8"

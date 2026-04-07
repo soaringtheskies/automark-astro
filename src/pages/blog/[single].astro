@@ -1,15 +1,14 @@
 ---
 import Base from "@/layouts/Base.astro";
-import GhlBlogCard from "@/layouts/components/GhlBlogCard.astro";
+import BlogCard from "@/layouts/components/BlogCard.astro";
 import ImageMod from "@/layouts/components/ImageMod.astro";
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 import dateFormat from "@/lib/utils/dateFormat";
 
 export async function getStaticPaths() {
-  const posts = await getCollection(
-    "blog",
-    ({ id }) => !id.startsWith("-index"),
-  );
+  const posts = await getSinglePage("blog");
   return posts.map((post) => ({
     params: { single: post.id },
     props: { post },
@@ -17,21 +16,18 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const d = post.data;
+const postData = post.data;
 const { Content } = await render(post);
 
 // Related posts
-const allPosts = await getCollection(
-  "blog",
-  ({ id }) => !id.startsWith("-index") && id !== post.id,
-);
-const related = allPosts.slice(0, 3);
+const allPosts = await getSinglePage("blog");
+const relatedPosts = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
 ---
 
 <Base
-  title={d.title}
-  meta_title={d.meta_title ?? d.title}
-  description={d.description ?? ""}
+  title={postData.title}
+  meta_title={postData.meta_title ?? postData.title}
+  description={postData.description ?? ""}
 >
   <!-- Blog Single Hero -->
   <section class="section-ph relative pb-10 lg:pb-14">
@@ -39,13 +35,13 @@ const related = allPosts.slice(0, 3);
       <div class="mx-auto max-w-246.25 text-center">
         <h1
           class="hasHighlight mb-8 text-h4-sm md:text-h1 leading-[1.1]"
-          set:html={d.title}
+          set:html={markdownify(postData.title)}
         />
 
         <div class="overflow-hidden rounded-2xl border border-text-white/10">
           <ImageMod
-            src={d.image ?? "/images/blog/featured-cover.png"}
-            alt={d.title}
+            src={postData.image ?? "/images/blog/featured-cover.png"}
+            alt={postData.title}
             width={1200}
             height={600}
             class="h-full w-full object-cover"
@@ -57,24 +53,24 @@ const related = allPosts.slice(0, 3);
         >
           <span class="inline-flex items-center gap-2">
             <ImageMod
-              src={d.author_image ?? "/images/blog/author-1.png"}
+              src={postData.author_image ?? "/images/blog/author-1.png"}
               width={24}
               height={24}
               class="size-6 rounded-full"
-              alt={d.author}
+              alt={postData.author}
             />
-            {d.author}
+            {postData.author}
           </span>
           <span class="inline-flex items-center gap-2">
             <i class="fa-regular fa-calendar-days text-xs" aria-hidden="true"
             ></i>
-            {dateFormat(d.date ?? new Date())}
+            {dateFormat(postData.date ?? new Date())}
           </span>
           {
-            d.read_time && (
+            postData.read_time && (
               <span class="inline-flex items-center gap-2">
                 <i class="fa-regular fa-clock text-xs" aria-hidden="true" />
-                {d.read_time}
+                {postData.read_time}
               </span>
             )
           }
@@ -143,7 +139,7 @@ const related = allPosts.slice(0, 3);
 
   <!-- Read More -->
   {
-    related.length > 0 && (
+    relatedPosts.length > 0 && (
       <section class="section pb-34">
         <div class="container relative isolate">
           <div class="mb-12 text-center">
@@ -151,8 +147,8 @@ const related = allPosts.slice(0, 3);
           </div>
 
           <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {related.map((relPost) => (
-              <GhlBlogCard
+            {relatedPosts.map((relPost) => (
+              <BlogCard
                 image={relPost.data.image ?? "/images/blog/post-1.png"}
                 imageAlt={relPost.data.title}
                 title={relPost.data.title}

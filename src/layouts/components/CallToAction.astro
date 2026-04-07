@@ -1,10 +1,11 @@
 ---
 import Badge from "./Badge.astro";
-import { getEntry } from "astro:content";
+import { getListPage } from "@/lib/contentParser.astro";
+import type { CtaSection } from "@/types";
 
-const ctaInfo = await getEntry("ctaSection", "call-to-action");
-if (!ctaInfo || !ctaInfo.data.enable) return;
-const d = ctaInfo.data;
+const ctaEntry = await getListPage("ctaSection", "call-to-action");
+const ctaData: CtaSection = ctaEntry.data;
+if (!ctaData.enable) return;
 ---
 
 <section class="section">
@@ -13,13 +14,13 @@ const d = ctaInfo.data;
   >
     <div class="section-container">
       <div class="section-intro centralize">
-        <Badge title={d.badge ? d.badge : ""} />
-        <h2 class="title hasHighlight lg:col-7" set:html={d.title} />
-        <p class="subtitle text-h6-sm lg:col-6">{d.description}</p>
+        <Badge title={ctaData.badge ? ctaData.badge : ""} />
+        <h2 class="title hasHighlight lg:col-7" set:html={ctaData.title} />
+        <p class="subtitle text-h6-sm lg:col-6">{ctaData.description}</p>
         {
-          d.button && d.button.link && (
-            <a href={d.button.link} class="btn btn-primary mt-9">
-              {d.button.label}
+          ctaData.button && ctaData.button.enable && ctaData.button.link && (
+            <a href={ctaData.button.link} class="btn btn-primary mt-9">
+              {ctaData.button.label}
             </a>
           )
         }

@@ -54,7 +54,7 @@ const aboutCollection = defineCollection({
         z.object({
           logo: z.string(),
           title: z.string(),
-          isStarred: z.boolean(),
+          is_starred: z.boolean(),
         }),
       ),
     }),
@@ -84,50 +84,40 @@ const contactCollection = defineCollection({
 const homepageCollection = defineCollection({
   loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/homepage" }),
   schema: z.object({
-    banner: z
-      .object({
-        badge: z.string().optional(),
-        title: z.string(),
-        content: z.string(),
-        image: z.string().optional(),
-        button_primary: z
-          .object({
-            enable: z.boolean().optional(),
-            label: z.string(),
-            link: z.string(),
-          })
-          .optional(),
-        button_secondary: z
-          .object({
-            enable: z.boolean().optional(),
-            label: z.string(),
-            link: z.string(),
-          })
-          .optional(),
-      })
-      .optional(),
-    main_features: z
-      .object({
-        badge: z.string().optional(),
-        title: z.string(),
-        content: z.string(),
-        items: z.array(z.string()),
-      })
-      .optional(),
-    value_props: z
-      .object({
-        badge: z.string().optional(),
-        title: z.string(),
-        content: z.string(),
-        items: z.array(
-          z.object({
-            logo: z.string(),
-            title: z.string(),
-            list: z.array(z.string()).optional(),
-          }),
-        ),
-      })
-      .optional(),
+    banner: z.object({
+      badge: z.string().optional(),
+      title: z.string(),
+      content: z.string(),
+      image: z.string().optional(),
+      button_primary: z.object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
+      }),
+      button_secondary: z.object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
+      }),
+    }),
+    main_features: z.object({
+      badge: z.string().optional(),
+      title: z.string(),
+      content: z.string(),
+      items: z.array(z.string()),
+    }),
+    value_props: z.object({
+      badge: z.string().optional(),
+      title: z.string(),
+      content: z.string(),
+      items: z.array(
+        z.object({
+          logo: z.string(),
+          title: z.string(),
+          list: z.array(z.string()).optional(),
+        }),
+      ),
+    }),
     partners: z
       .object({ badge: z.string().optional(), title: z.string() })
       .optional(),
@@ -139,79 +129,63 @@ const homepageCollection = defineCollection({
         cards: z.array(z.object({ title: z.string(), logo: z.string() })),
       })
       .optional(),
-    our_features: z
-      .object({
-        badge: z.string().optional(),
-        title: z.string(),
-        content: z.string(),
-        items: z.array(
-          z.object({
-            logo: z.string(),
-            title: z.string(),
-            isStarred: z.boolean(),
-          }),
-        ),
-      })
-      .optional(),
-
-    testimonial_quote: z
-      .object({
-        badge: z.string().optional(),
-        title: z.string(),
-        quote: z.string(),
-      })
-      .optional(),
-
-    single_testimonial: z
-      .object({
-        stats: z.array(z.object({ value: z.string(), label: z.string() })),
-        testimonial: z.object({
-          quote: z.string(),
-          avatar: z.string(),
-          name: z.string(),
-          company: z.string(),
+    our_features: z.object({
+      badge: z.string().optional(),
+      title: z.string(),
+      content: z.string(),
+      items: z.array(
+        z.object({
+          logo: z.string(),
+          title: z.string(),
+          is_starred: z.boolean(),
         }),
-      })
-      .optional(),
-    growth_process: z
-      .object({
-        badge: z.string().optional(),
-        title: z.string(),
-        items: z.array(
-          z.object({
-            logo: z.string(),
-            title: z.string(),
-            content: z.string(),
-          }),
-        ),
-        button: z.object({ label: z.string(), link: z.string() }),
-      })
-      .optional(),
-    integrations: z
-      .object({
-        badge: z.string().optional(),
-        title: z.string(),
-        items: z.array(z.object({ image: z.string(), alt: z.string() })),
-      })
-      .optional(),
-    lead_generation: z
-      .object({
-        badge: z.string().optional(),
-        title: z.string(),
-        heading: z.string(),
-        p1: z.string(),
-        p2: z.string(),
-        list: z.array(z.string()),
-        image: z.string(),
-        button_label: z.string(),
-      })
-      .optional(),
-    pricing: z
-      .object({
-        title: z.string(),
-        content: z.string(),
-      })
-      .optional(),
+      ),
+    }),
+    testimonial_quote: z.object({
+      badge: z.string().optional(),
+      title: z.string(),
+      quote: z.string(),
+    }),
+    single_testimonial: z.object({
+      stats: z.array(z.object({ value: z.string(), label: z.string() })),
+      testimonial: z.object({
+        quote: z.string(),
+        avatar: z.string(),
+        name: z.string(),
+        company: z.string(),
+      }),
+    }),
+    growth_process: z.object({
+      badge: z.string().optional(),
+      title: z.string(),
+      items: z.array(
+        z.object({
+          logo: z.string(),
+          title: z.string(),
+          content: z.string(),
+        }),
+      ),
+      button: z.object({ enable: z.boolean(), label: z.string(), link: z.string() }),
+    }),
+    integrations: z.object({
+      badge: z.string().optional(),
+      title: z.string(),
+      items: z.array(z.object({ image: z.string(), alt: z.string() })),
+    }),
+    lead_generation: z.object({
+      badge: z.string().optional(),
+      title: z.string(),
+      heading: z.string(),
+      p1: z.string(),
+      p2: z.string(),
+      list: z.array(z.string()),
+      image: z.string(),
+     
+    }),
+    pricing: z.object({
+      title: z.string(),
+      content: z.string(),
+    }),
   }),
 });
 
@@ -222,8 +196,8 @@ const featuresCollection = defineCollection({
     banner: z.object({
       title: z.string(),
       content: z.string(),
-      button_primary: z.object({ label: z.string(), link: z.string() }),
-      button_secondary: z.object({ label: z.string(), link: z.string() }),
+      button_primary: z.object({ enable: z.boolean(), label: z.string(), link: z.string() }),
+      button_secondary: z.object({ enable: z.boolean(), label: z.string(), link: z.string() }),
       image: z.string(),
     }),
     partners: z.object({ badge: z.string().optional(), title: z.string() }),
@@ -273,10 +247,9 @@ const pricingCollection = defineCollection({
         title: z.string(),
         price: z.string(),
         yearly_price: z.string(),
-        isFeatured: z.boolean(),
+        is_featured: z.boolean(),
         offer_text: z.string().optional(),
-        button_label: z.string(),
-        button_link: z.string(),
+        button: z.object({ enable: z.boolean(), label: z.string(), link: z.string() }),
         description: z.string(),
         features: z.array(
           z.object({
@@ -322,10 +295,10 @@ const caseStudyCollection = defineCollection({
     logo: z.string().optional(),
     company: z.string().optional(),
     badge: z.string().optional(),
-    stat1Value: z.string().optional(),
-    stat1Label: z.string().optional(),
-    stat2Value: z.string().optional(),
-    stat2Label: z.string().optional(),
+    stat_1_value: z.string().optional(),
+    stat_1_label: z.string().optional(),
+    stat_2_value: z.string().optional(),
+    stat_2_label: z.string().optional(),
     overview: z
       .object({
         image: z.string(),
@@ -444,7 +417,7 @@ const ctaSectionCollection = defineCollection({
     badge: z.string().optional(),
     title: z.string(),
     description: z.string(),
-    button: z.object({ label: z.string(), link: z.string() }),
+    button: z.object({ enable: z.boolean(), label: z.string(), link: z.string() }),
   }),
 });
 
@@ -475,7 +448,7 @@ const faqSectionCollection = defineCollection({
     badge: z.string().optional(),
     title: z.string(),
     description: z.string(),
-    button: z.object({ label: z.string(), link: z.string() }),
+    button: z.object({ enable: z.boolean(), label: z.string(), link: z.string() }),
     items: z.array(z.object({ question: z.string(), answer: z.string() })),
   }),
 });
@@ -500,7 +473,7 @@ const ourStorySectionCollection = defineCollection({
     letter_points_heading: z.string().optional(),
     letter_points: z.array(z.string()),
     letter_p2: z.string().optional(),
-    button: z.object({ label: z.string(), link: z.string() }),
+    button: z.object({ enable: z.boolean(), label: z.string(), link: z.string() }),
   }),
 });
 

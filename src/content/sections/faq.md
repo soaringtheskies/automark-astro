@@ -3,6 +3,7 @@ enable: true
 title: "Quick Answers for the Smart Investors"
 description: "Find answers to common questions about our product and services."
 button:
+  enable: true
   label: "Get in Touch"
   link: "/contact"
 items:

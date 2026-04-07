@@ -14,6 +14,7 @@ letter_points:
   - "3. Scale on Autopilot"
 letter_p2: "Stop wasting money on ads that don't convert and instead enjoy a streamlined business with consistent, predictable revenue growth."
 button:
+  enable: true
   label: "Start Your 14-Days Free Trial"
   link: "https://themefisher.com/products/automark-astro"
 ---

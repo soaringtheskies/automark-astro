@@ -17,9 +17,11 @@ plans:
   - title: "Basic Plan"
     price: "20"
     yearly_price: "15"
-    isFeatured: false
-    button_label: "Get Access"
-    button_link: "#"
+    is_featured: false
+    button:
+      enable: true
+      label: "Get Access"
+      link: "#"
     description: "Our introductory pricing. This will give you the core necessities."
     features:
       - label: "Up to 10 Members"
@@ -37,10 +39,12 @@ plans:
   - title: "Pro Plan"
     price: "70"
     yearly_price: "49"
-    isFeatured: true
+    is_featured: true
     offer_text: 30% save
-    button_label: "Get Access"
-    button_link: "#"
+    button:
+      enable: true
+      label: "Get Access"
+      link: "#"
     description: "Our introductory pricing. This will give you the core necessities."
     features:
       - label: "Up to 10 Members"
@@ -58,9 +62,11 @@ plans:
   - title: "Enterprise Plan"
     price: "99"
     yearly_price: "80"
-    isFeatured: false
-    button_label: "Get Access"
-    button_link: "#"
+    is_featured: false
+    button:
+      enable: true
+      label: "Get Access"
+      link: "#"
     description: "Our introductory pricing. This will give you the core necessities."
     features:
       - label: "Up to 10 Members"

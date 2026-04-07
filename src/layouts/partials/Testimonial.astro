@@ -1,23 +1,24 @@
 ---
 import GradientBlob from "@/components/GradientBlob.astro";
 import TestimonialCard from "@/components/TestimonialCard.astro";
-import { getEntry } from "astro:content";
+import { getListPage } from "@/lib/contentParser.astro";
+import type { TestimonialSection } from "@/types";
 
-const testimonials = await getEntry("testimonialSection", "testimonial");
-const testimonialData = testimonials?.data;
+const testimonialEntry = await getListPage("testimonialSection", "testimonial");
+const testimonialData: TestimonialSection = testimonialEntry.data;
 ---
 
 {
-  testimonialData?.enable && (
+  testimonialData.enable && (
     <section class="section relative">
       <div class="container">
         <div class="section-container">
           <div class="section-intro centralize">
-            <h2 class="title hasHighlight" set:html={testimonialData?.title} />
+            <h2 class="title hasHighlight" set:html={testimonialData.title} />
           </div>
           <div class="section-content">
             <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-7">
-              {testimonialData?.testimonials.map((item: any) => (
+              {testimonialData.testimonials.map((item) => (
                 <TestimonialCard
                   poster={item.poster}
                   name={item.name}

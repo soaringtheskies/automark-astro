@@ -2,30 +2,31 @@
 import ImageMod from "@/layouts/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import Badge from "@/layouts/components/Badge.astro";
-import FeatureCard from "@/layouts/components/FeatureCard.astro";
 import TeamCard from "@/layouts/components/TeamCard.astro";
 import GradientBlob from "@/layouts/components/GradientBlob.astro";
 import BrandsCarousel from "@/layouts/components/BrandsCarousel.astro";
 import Faq from "@/layouts/components/Faq.astro";
 import OurStory from "@/layouts/components/OurStory.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
-import { getEntry } from "astro:content";
+import { getListPage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 import Testimonial from "@/partials/Testimonial.astro";
 import Features from "@/partials/Features.astro";
+import type { About } from "@/types";
 
-const about = await getEntry("about", "-index");
-const d = about!.data as any;
+const about = await getListPage("about", "-index");
+const aboutData: About = about.data;
 ---
 
-<Base title={d.title} meta_title={d.meta_title} description={d.description}>
+<Base title={aboutData.title} meta_title={aboutData.meta_title} description={aboutData.description}>
   <!-- Page Header -->
   <section class="section-ph pb-20 overflow-hidden">
     <div class="container">
       <div class="lg:max-w-4xl mx-auto text-center">
-        <h1 class="hasHighlight mb-6" set:html={d.page_header.title} />
-        <p class="mb-5 text-lg text-text">{d.page_header.subtitle}</p>
+        <h1 class="hasHighlight mb-6" set:html={markdownify(aboutData.page_header.title)} />
+        <p class="mb-5 text-lg text-text">{aboutData.page_header.subtitle}</p>
         <ImageMod
-          src={d.page_header.image}
+          src={aboutData.page_header.image}
           alt="Team collaboration meeting"
           class="w-full h-auto object-cover aspect-video lg:aspect-1000/520 rounded-3xl mt-20"
         />
@@ -196,7 +197,7 @@ const d = about!.data as any;
     <div class="container">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
         {
-          d.stats.map((stat: any) => (
+          aboutData.stats.map((stat: any) => (
             <div class="text-center p-8 lg:p-10 lg:py-26 rounded-2xl bg-primary/10">
               <div class="text-h2 lg:text-h1 leading-none font-bold font-secondary text-text-white mb-4">
                 {stat.value}
@@ -220,13 +221,13 @@ const d = about!.data as any;
     <div class="container">
       <div class="section-container">
         <div class="section-intro centralize">
-          <Badge title={d.our_team.badge} />
-          <h2 class="title hasHighlight" set:html={d.our_team.title} />
+          <Badge title={aboutData.our_team.badge} />
+          <h2 class="title hasHighlight" set:html={markdownify(aboutData.our_team.title)} />
         </div>
         <div class="section-content">
           <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {
-              d.our_team.members.map((member: any) => (
+              aboutData.our_team.members.map((member: any) => (
                 <TeamCard
                   image={member.image}
                   name={member.name}
@@ -241,7 +242,7 @@ const d = about!.data as any;
   </section>
 
   <!-- features -->
-  <Features our_features={d.core_values} />
+  <Features our_features={aboutData.core_values} />
 
   <!-- Testimonials Section -->
   <Testimonial />

@@ -1,39 +1,34 @@
 ---
 import Base from "@/layouts/Base.astro";
-import GhlBlogCard from "@/layouts/components/GhlBlogCard.astro";
-import GhlBlogFeaturedCard from "@/layouts/components/GhlBlogFeaturedCard.astro";
+import BlogCard from "@/layouts/components/BlogCard.astro";
+import FeaturedPostCard from "@/layouts/components/FeaturedPostCard.astro";
 import ImageMod from "@/layouts/components/ImageMod.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
-import { getCollection, getEntry } from "astro:content";
+import { getSinglePage, getListPage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import { markdownify } from "@/lib/utils/textConverter";
 import dateFormat from "@/lib/utils/dateFormat";
+import type { BlogIndex } from "@/types";
 
 // Page-level content from content collection
-const blogIndex = await getEntry("blogIndex", "-index");
-const d = blogIndex!.data as any;
+const blogIndex = await getListPage("blogIndex", "-index");
+const pageData: BlogIndex = blogIndex.data;
 
-// All blog posts (exclude the index file)
-const allPosts = await getCollection(
-  "blog",
-  ({ id }) => !id.startsWith("-index"),
-);
-const posts = allPosts.sort((a, b) => {
-  const aDate = a.data.date ? new Date(a.data.date).getTime() : 0;
-  const bDate = b.data.date ? new Date(b.data.date).getTime() : 0;
-  return bDate - aDate;
-});
+// All blog posts sorted by date
+const allPosts = sortByDate(await getSinglePage("blog"));
 
 // Featured post: use the one specified in content, fallback to first
-const featuredId = d.page_header?.featured_post;
-const featured = featuredId
-  ? (posts.find((p) => p.id === featuredId) ?? posts[0])
-  : posts[0];
-const latestPosts = posts.filter((p) => p.id !== featured.id);
+const featuredId = pageData.page_header?.featured_post;
+const featuredPost = featuredId
+  ? (allPosts.find((p) => p.id === featuredId) ?? allPosts[0])
+  : allPosts[0];
+const latestPosts = allPosts.filter((p) => p.id !== featuredPost.id);
 ---
 
 <Base
-  title={d.title}
-  meta_title={d.meta_title ?? d.title}
-  description={d.description ?? ""}
+  title={pageData.title}
+  meta_title={pageData.meta_title ?? pageData.title}
+  description={pageData.description ?? ""}
 >
   <!-- Page Header -->
   <section class="section-ph pb-10 relative">
@@ -46,7 +41,7 @@ const latestPosts = posts.filter((p) => p.id !== featured.id);
       <div class="lg:max-w-4xl mx-auto text-center relative z-10">
         <h1
           class="hasHighlight mb-0"
-          set:html={d.page_header?.title ?? d.title}
+          set:html={markdownify(pageData.page_header?.title ?? pageData.title)}
         />
       </div>
     </div>
@@ -64,24 +59,24 @@ const latestPosts = posts.filter((p) => p.id !== featured.id);
         <!-- Cover Image -->
         <div class="overflow-hidden rounded-2xl border border-text-white/10">
           <ImageMod
-            src={featured.data.image ?? "/images/blog/featured-cover.png"}
-            alt={featured.data.title}
+            src={featuredPost.data.image ?? "/images/blog/featured-cover.png"}
+            alt={featuredPost.data.title}
             width={700}
             height={500}
             class="h-full w-full object-cover"
           />
         </div>
         <!-- Featured Info Card -->
-        <GhlBlogFeaturedCard
-          tag={featured.data.tag ?? "Popular"}
-          title={featured.data.title}
-          description={featured.data.description ?? ""}
-          authorImage={featured.data.author_image ??
+        <FeaturedPostCard
+          tag={featuredPost.data.tag ?? "Popular"}
+          title={featuredPost.data.title}
+          description={featuredPost.data.description ?? ""}
+          authorImage={featuredPost.data.author_image ??
             "/images/blog/author-1.png"}
-          authorName={featured.data.author}
-          date={dateFormat(featured.data.date ?? new Date())}
-          readTime={featured.data.read_time ?? "5 min read"}
-          href={`/blog/${featured.id}`}
+          authorName={featuredPost.data.author}
+          date={dateFormat(featuredPost.data.date ?? new Date())}
+          readTime={featuredPost.data.read_time ?? "5 min read"}
+          href={`/blog/${featuredPost.id}`}
         />
       </div>
 
@@ -96,14 +91,14 @@ const latestPosts = posts.filter((p) => p.id !== featured.id);
     <div class="container relative isolate">
       <div class="mb-12 text-center">
         <h2 class="text-h3-sm md:text-h2 capitalize">
-          {d.latest_section_title ?? "Latest Content From Us"}
+          {pageData.latest_section_title ?? "Latest Content From Us"}
         </h2>
       </div>
 
       <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {
           latestPosts.map((post) => (
-            <GhlBlogCard
+            <BlogCard
               image={post.data.image ?? "/images/blog/post-1.png"}
               imageAlt={post.data.title}
               title={post.data.title}
