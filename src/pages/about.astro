@@ -46,7 +46,7 @@ const aboutData: About = about.data;
     </div>
     <div
       class="absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2 size-160 xl:size-300 -z-20 blur-2xl"
-      style="background: radial-gradient(circle, #9982ff 0%, #6e4dffc8 20%, rgba(202, 194, 255, 0) 70%, rgba(255, 255, 255, 0) 100%);"
+      style="background: radial-gradient(circle, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 78%, transparent) 20%, transparent 70%);"
     >
     </div>
     <div class="absolute top-0 left-0 flex flex-col gap-6 -z-10">
@@ -79,7 +79,7 @@ const aboutData: About = about.data;
             ><ellipse
               cx="143"
               cy="252.378"
-              fill="#530DBB"
+              fill="var(--color-primary-light)"
               fill-opacity=".5"
               rx="143"
               ry="252.378"
@@ -159,9 +159,9 @@ const aboutData: About = about.data;
             y1="-25.255"
             y2="203.106"
             gradientUnits="userSpaceOnUse"
-            ><stop stop-color="#7369FF"></stop><stop
+            ><stop stop-color="var(--color-primary)"></stop><stop
               offset="1"
-              stop-color="#6971FF"
+              stop-color="var(--color-primary)"
               stop-opacity="0"></stop></linearGradient
           >
           <linearGradient
@@ -171,9 +171,9 @@ const aboutData: About = about.data;
             y1="-5.671"
             y2="213.574"
             gradientUnits="userSpaceOnUse"
-            ><stop stop-color="#7369FF"></stop><stop
+            ><stop stop-color="var(--color-primary)"></stop><stop
               offset="1"
-              stop-color="#6971FF"
+              stop-color="var(--color-primary)"
               stop-opacity="0"></stop></linearGradient
           >
           <linearGradient
@@ -183,9 +183,9 @@ const aboutData: About = about.data;
             y1="-25.45"
             y2="276.359"
             gradientUnits="userSpaceOnUse"
-            ><stop stop-color="#7369FF"></stop><stop
+            ><stop stop-color="var(--color-primary)"></stop><stop
               offset="1"
-              stop-color="#6971FF"
+              stop-color="var(--color-primary)"
               stop-opacity="0"></stop></linearGradient
           >
         </defs>
@@ -207,7 +207,7 @@ const aboutData: About = about.data;
           <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
             {aboutData.stats.items.map((stat: any) => (
               <div class="text-center p-8 lg:p-10 lg:py-26 rounded-2xl bg-primary/10">
-                <div class="text-h2 lg:text-h1 leading-none font-bold font-secondary text-text-white mb-4">
+                <div class="text-h2 lg:text-h1 leading-none font-bold font-secondary text-white mb-4">
                   {stat.value}
                 </div>
                 <p class="text-text text-h6">{stat.label}</p>

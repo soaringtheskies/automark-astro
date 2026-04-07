@@ -31,12 +31,12 @@ const { image, logo, company, badge, title, description, stats, href } =
   </div>
   <div class="p-8 xl:p-10 rounded-2xl bg-light border border-border">
     <div
-      class="px-4 py-1.5 bg-text-white max-w-min text-dark rounded-lg text-sm font-medium mb-12"
+      class="px-4 py-1.5 bg-white max-w-min text-dark rounded-lg text-sm font-medium mb-12"
     >
       {badge}
     </div>
     <h3
-      class="text-h4 font-bold text-text-white mt-4 mb-3 hover:text-primary transition-colors duration-200"
+      class="text-h4 font-bold text-white mt-4 mb-3 hover:text-primary transition-colors duration-200"
     >
       <a href={href}>{title}</a>
     </h3>
@@ -46,7 +46,7 @@ const { image, logo, company, badge, title, description, stats, href } =
         <div class="flex items-center justify-between gap-8 mt-20">
           {stats.slice(0, 2).map((stat) => (
             <div class="flex flex-col">
-              <div class="text-h3 font-bold font-secondary text-text-white">
+              <div class="text-h3 font-bold font-secondary text-white">
                 {stat.value}
               </div>
               <p class="text-sm text-text tracking-wide">{stat.label}</p>

@@ -24,8 +24,8 @@ if (!comparisonData.enable) return;
               {comparisonData.items.map(({ title, price, images }) => (
                 <div class="relative max-lg:border max-lg:border-border max-lg:rounded-4xl max-lg:py-8 max-lg:corner-squircle">
                   <div class="flex items-center flex-col lg:flex-row lg:justify-between w-full gap-y-8">
-                    <div class="bg-[#070710] border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2 max-w-70">
-                      <span class="font-semibold text-text-white text-lg">
+                    <div class="bg-body border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2 max-w-70">
+                      <span class="font-semibold text-white text-lg">
                         {title}
                       </span>
                     </div>
@@ -40,7 +40,7 @@ if (!comparisonData.enable) return;
                       ))}
                     </div>
 
-                    <div class="bg-[#070710] border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2 max-w-60">
+                    <div class="bg-body border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2 max-w-60">
                       <span class="font-normal text-text text-base">
                         <span class="text-secondary font-secondary font-bold text-h6">
                           {price}
@@ -60,7 +60,7 @@ if (!comparisonData.enable) return;
         </div>
       </div>
       <div class="absolute inset-0 grid place-items-center size-full -z-10">
-        <div class="size-225 bg-radial from-gradient-start/30 to-transparent from-0% to-70% rounded-full" />
+        <div class="size-225 bg-radial from-primary-light/30 to-transparent from-0% to-70% rounded-full" />
       </div>
     </section>
   )

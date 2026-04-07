@@ -47,7 +47,7 @@ const { Content } = await render(job);
     </div>
     <div
       class="absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2 size-160 xl:size-300 -z-20 blur-2xl"
-      style="background: radial-gradient(circle, #9982ff 0%, #6e4dffc8 20%, rgba(202, 194, 255, 0) 70%, rgba(255, 255, 255, 0) 100%);"
+      style="background: radial-gradient(circle, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 78%, transparent) 20%, transparent 70%);"
     >
     </div>
   </section>
@@ -86,7 +86,7 @@ const { Content } = await render(job);
                 />
               </div>
               <p class="text-text text-sm mb-1">{item.label}</p>
-              <p class="text-text-white font-semibold">{item.value}</p>
+              <p class="text-white font-semibold">{item.value}</p>
             </div>
           ))
         }

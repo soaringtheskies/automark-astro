@@ -67,7 +67,7 @@ const homepageData: Homepage = homepage.data;
     </div>
     <div
       class="absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2 size-160 xl:size-300 -z-20 blur-2xl"
-      style="background: radial-gradient(circle, #9982ff 0%, #6e4dffc8 20%, rgba(202, 194, 255, 0) 70%, rgba(255, 255, 255, 0) 100%);"
+      style="background: radial-gradient(circle, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 78%, transparent) 20%, transparent 70%);"
     >
     </div>
     <div class="absolute top-0 left-0 flex flex-col gap-6 -z-10">
@@ -100,7 +100,7 @@ const homepageData: Homepage = homepage.data;
             ><ellipse
               cx="143"
               cy="252.378"
-              fill="#530DBB"
+              fill="var(--color-primary-light)"
               fill-opacity=".5"
               rx="143"
               ry="252.378"
@@ -180,9 +180,9 @@ const homepageData: Homepage = homepage.data;
             y1="-25.255"
             y2="203.106"
             gradientUnits="userSpaceOnUse"
-            ><stop stop-color="#7369FF"></stop><stop
+            ><stop stop-color="var(--color-primary)"></stop><stop
               offset="1"
-              stop-color="#6971FF"
+              stop-color="var(--color-primary)"
               stop-opacity="0"></stop></linearGradient
           >
           <linearGradient
@@ -192,9 +192,9 @@ const homepageData: Homepage = homepage.data;
             y1="-5.671"
             y2="213.574"
             gradientUnits="userSpaceOnUse"
-            ><stop stop-color="#7369FF"></stop><stop
+            ><stop stop-color="var(--color-primary)"></stop><stop
               offset="1"
-              stop-color="#6971FF"
+              stop-color="var(--color-primary)"
               stop-opacity="0"></stop></linearGradient
           >
           <linearGradient
@@ -204,9 +204,9 @@ const homepageData: Homepage = homepage.data;
             y1="-25.45"
             y2="276.359"
             gradientUnits="userSpaceOnUse"
-            ><stop stop-color="#7369FF"></stop><stop
+            ><stop stop-color="var(--color-primary)"></stop><stop
               offset="1"
-              stop-color="#6971FF"
+              stop-color="var(--color-primary)"
               stop-opacity="0"></stop></linearGradient
           >
         </defs>
@@ -235,7 +235,7 @@ const homepageData: Homepage = homepage.data;
                 {homepageData.main_features.items
                   .slice(0, 3)
                   .map((text: string) => (
-                    <div class="bg-[#070710] border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
+                    <div class="bg-body border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
                       <svg
                         class="shrink-0"
                         width="20"
@@ -246,10 +246,10 @@ const homepageData: Homepage = homepage.data;
                       >
                         <path
                           d="M9.99999 1.04163C14.9476 1.04163 18.9583 5.05241 18.9583 9.99996C18.9583 14.9475 14.9476 18.9583 9.99999 18.9583C5.05244 18.9583 1.04166 14.9475 1.04166 9.99996C1.04166 5.05241 5.05244 1.04163 9.99999 1.04163ZM8.02571 6.8538C7.69841 6.58685 7.2159 6.6057 6.9108 6.91077C6.60581 7.21587 6.5869 7.6984 6.85383 8.02568L6.9108 8.08915L8.82157 9.99996L6.91161 11.9108C6.5863 12.2362 6.58619 12.7638 6.91161 13.0891C7.23705 13.4143 7.76464 13.4145 8.09 13.0891L9.99999 11.1784L11.91 13.0891L11.9735 13.1461C12.3007 13.413 12.7832 13.394 13.0884 13.0891C13.3934 12.7842 13.4128 12.3015 13.1462 11.9742L13.0884 11.9108L11.1776 9.99996L13.0892 8.08915L13.1462 8.02568C13.4131 7.69839 13.3942 7.21587 13.0892 6.91077C12.7841 6.6057 12.3016 6.58685 11.9742 6.8538L11.9108 6.91077L9.99999 8.82154L8.08918 6.91077L8.02571 6.8538Z"
-                          fill="#FF5353"
+                          fill="var(--color-secondary)"
                         />
                       </svg>
-                      <span class="font-semibold text-text-white text-lg">
+                      <span class="font-semibold text-white text-lg">
                         {text}
                       </span>
                     </div>
@@ -259,7 +259,7 @@ const homepageData: Homepage = homepage.data;
                 {homepageData.main_features.items
                   .slice(3)
                   .map((text: string) => (
-                    <div class="bg-[#070710] border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
+                    <div class="bg-body border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
                       <svg
                         class="shrink-0"
                         width="20"
@@ -270,10 +270,10 @@ const homepageData: Homepage = homepage.data;
                       >
                         <path
                           d="M9.99999 1.04163C14.9476 1.04163 18.9583 5.05241 18.9583 9.99996C18.9583 14.9475 14.9476 18.9583 9.99999 18.9583C5.05244 18.9583 1.04166 14.9475 1.04166 9.99996C1.04166 5.05241 5.05244 1.04163 9.99999 1.04163ZM8.02571 6.8538C7.69841 6.58685 7.2159 6.6057 6.9108 6.91077C6.60581 7.21587 6.5869 7.6984 6.85383 8.02568L6.9108 8.08915L8.82157 9.99996L6.91161 11.9108C6.5863 12.2362 6.58619 12.7638 6.91161 13.0891C7.23705 13.4143 7.76464 13.4145 8.09 13.0891L9.99999 11.1784L11.91 13.0891L11.9735 13.1461C12.3007 13.413 12.7832 13.394 13.0884 13.0891C13.3934 12.7842 13.4128 12.3015 13.1462 11.9742L13.0884 11.9108L11.1776 9.99996L13.0892 8.08915L13.1462 8.02568C13.4131 7.69839 13.3942 7.21587 13.0892 6.91077C12.7841 6.6057 12.3016 6.58685 11.9742 6.8538L11.9108 6.91077L9.99999 8.82154L8.08918 6.91077L8.02571 6.8538Z"
-                          fill="#FF5353"
+                          fill="var(--color-secondary)"
                         />
                       </svg>
-                      <span class="font-semibold text-text-white text-lg">
+                      <span class="font-semibold text-white text-lg">
                         {text}
                       </span>
                     </div>
@@ -345,13 +345,13 @@ const homepageData: Homepage = homepage.data;
             <div class="section-content">
               <hr class="h-px bg-linear-to-r from-transparent from-5% via-text-white/40 to-95% to-transparent border-0" />
               <div class="relative max-w-220 mx-auto">
-                <blockquote class="text-center text-h6 text-text-white p-6 xl:p-10 xl:px-15 border-x border-text/20">
+                <blockquote class="text-center text-h6 text-white p-6 xl:p-10 xl:px-15 border-x border-text/20">
                   "{homepageData.testimonial_quote.quote}"
                 </blockquote>
-                <div class="size-2 bg-text-white absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2" />
-                <div class="size-2 bg-text-white absolute right-0 top-0 translate-x-1/2 -translate-y-1/2" />
-                <div class="size-2 bg-text-white absolute left-0 bottom-0 -translate-x-1/2 translate-y-1/2" />
-                <div class="size-2 bg-text-white absolute right-0 bottom-0 translate-x-1/2 translate-y-1/2" />
+                <div class="size-2 bg-white absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2" />
+                <div class="size-2 bg-white absolute right-0 top-0 translate-x-1/2 -translate-y-1/2" />
+                <div class="size-2 bg-white absolute left-0 bottom-0 -translate-x-1/2 translate-y-1/2" />
+                <div class="size-2 bg-white absolute right-0 bottom-0 translate-x-1/2 translate-y-1/2" />
               </div>
               <hr class="h-px bg-linear-to-r from-transparent from-5% via-text-white/40 to-95% to-transparent border-0" />
             </div>
@@ -379,7 +379,7 @@ const homepageData: Homepage = homepage.data;
                         <div
                           class={`blob-message relative z-${i + 1} ${i === 1 ? "lg:w-10/12" : ""}`}
                         >
-                          <span class="font-semibold text-text-white">
+                          <span class="font-semibold text-white">
                             {stat.value}
                           </span>{" "}
                           {stat.label}
@@ -390,7 +390,7 @@ const homepageData: Homepage = homepage.data;
                 </div>
                 <div class="lg:col-7 max-lg:mt-10">
                   <div class="rounded-4xl corner-squircle bg-light px-7 py-10">
-                    <div class="text-text-white">
+                    <div class="text-white">
                       <svg
                         width="45"
                         height="28"
@@ -404,7 +404,7 @@ const homepageData: Homepage = homepage.data;
                         />
                       </svg>
                     </div>
-                    <blockquote class="mt-10 text-h6 text-text-white">
+                    <blockquote class="mt-10 text-h6 text-white">
                       {homepageData.single_testimonial.testimonial.quote}
                     </blockquote>
                     <div class="mt-12.5 flex items-center">
@@ -435,7 +435,7 @@ const homepageData: Homepage = homepage.data;
           </div>
         </div>
         <div class="absolute top-0 lg:bottom-0 grid place-items-center size-full lg:translate-y-20 -z-10">
-          <div class="size-180 xl:size-300 bg-radial from-gradient-start/60 to-transparent from-0% to-70% rounded-full" />
+          <div class="size-180 xl:size-300 bg-radial from-primary-light/60 to-transparent from-0% to-70% rounded-full" />
           <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-180">
             <div class="h-100 w-full overflow-hidden">
               <canvas class="heroSporeCanvas w-full" />
@@ -504,15 +504,15 @@ const homepageData: Homepage = homepage.data;
                 gradientUnits="userSpaceOnUse"
               >
                 <>
-                  <stop stop-color="#6833D9" />
-                  <stop offset="1" stop-color="#060411" />
+                  <stop stop-color="var(--color-primary-light)" />
+                  <stop offset="1" stop-color="var(--color-body)" />
                 </>
               </linearGradient>
             </defs>
           </svg>
         </div>
         <div class="absolute inset-0 grid place-items-center size-full -z-10">
-          <div class="size-225 bg-radial from-gradient-start/30 to-transparent from-0% to-70% rounded-full" />
+          <div class="size-225 bg-radial from-primary-light/30 to-transparent from-0% to-70% rounded-full" />
         </div>
       </section>
     )
@@ -549,7 +549,7 @@ const homepageData: Homepage = homepage.data;
           </div>
         </div>
         <div class="absolute inset-0 grid place-items-center size-full -z-10">
-          <div class="size-180 xl:size-225 bg-radial from-gradient-start/40 to-transparent from-0% to-70% rounded-full" />
+          <div class="size-180 xl:size-225 bg-radial from-primary-light/40 to-transparent from-0% to-70% rounded-full" />
         </div>
       </section>
     )

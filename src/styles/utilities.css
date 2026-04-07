@@ -6,7 +6,7 @@
 }
 
 @utility bg-gradient {
-  @apply bg-linear-to-b from-[#383838] from-[0.53%] to-transparent to-[83.28%];
+  @apply bg-linear-to-b from-border from-[0.53%] to-transparent to-[83.28%];
 }
 
 /* form style */
@@ -53,5 +53,5 @@
 }
 
 @utility link {
-  @apply text-text-white hover:text-primary transition-colors duration-200 underline;
+  @apply text-white hover:text-primary transition-colors duration-200 underline;
 }

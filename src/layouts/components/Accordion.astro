@@ -5,7 +5,7 @@ interface Props {
 }
 const {
   title,
-  content = "AI is a tool that enhances human capabilities rather than replacing them. It assists in automating tasks and providing insights, but human creativity and judgment remain essential.",
+  content ,
 } = Astro.props;
 ---
 
@@ -20,14 +20,14 @@ const {
     >
       <path
         d="M0.75 5.41602H10.0833"
-        stroke="#A6A1A9"
+        stroke="var(--color-text-dark)"
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"></path>
       <path
         d="M5.41663 10.083L5.41663 0.749675"
         class="accordion-icon-vertical-line"
-        stroke="#A6A1A9"
+        stroke="var(--color-text-dark)"
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"></path>

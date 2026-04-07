@@ -39,7 +39,7 @@ const pricingData: Pricing = pricing.data;
     </div>
     <div
       class="absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2 size-160 xl:size-300 -z-20 blur-2xl"
-      style="background: radial-gradient(circle, #9982ff 0%, #6e4dffc8 20%, rgba(202, 194, 255, 0) 70%, rgba(255, 255, 255, 0) 100%);"
+      style="background: radial-gradient(circle, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 78%, transparent) 20%, transparent 70%);"
     >
     </div>
     <PricingSection isHome={false} />
@@ -64,7 +64,7 @@ const pricingData: Pricing = pricing.data;
                   <div class="grid grid-cols-[1.2fr_1fr_1fr_1fr] items-center text-sm md:text-base font-primary text-text relative z-10">
                     {pricingData.comparison.headers.map((h: any, i: number) => (
                       <div
-                        class={`px-6 py-5 text-h5-sm font-semibold text-text-white ${i === 0 ? "" : "text-center"}`}
+                        class={`px-6 py-5 text-h5-sm font-semibold text-white ${i === 0 ? "" : "text-center"}`}
                       >
                         {h.label}
                       </div>
@@ -76,7 +76,7 @@ const pricingData: Pricing = pricing.data;
                       <div
                         class={`grid grid-cols-[1.2fr_1fr_1fr_1fr] items-center border-t border-border/60 ${i % 2 === 0 ? "bg-white/5" : ""}`}
                       >
-                        <div class="px-6 py-4 text-text-white">
+                        <div class="px-6 py-4 text-white">
                           {row.feature}
                         </div>
                         {row.values.map((val: any, valIndex: number) => (
@@ -104,7 +104,7 @@ const pricingData: Pricing = pricing.data;
                               )
                             ) : (
                               <span
-                                class={`font-medium ${valIndex === 1 ? "text-text-white" : "text-text-dark"}`}
+                                class={`font-medium ${valIndex === 1 ? "text-white" : "text-text-dark"}`}
                               >
                                 {val}
                               </span>

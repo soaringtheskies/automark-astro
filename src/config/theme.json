@@ -8,16 +8,12 @@
         "body": "#03010E",
         "border": "#202128",
         "light": "#0B0C17",
-        "dark": "#040404",
-
-        "gradient_start": "#4D36D0",
-        "gradient_end": "#8474FE"
+        "dark": "#040404"
       },
       "text_color": {
         "text": "#DAD4DE",
         "text_dark": "#817E84",
-        "text_light": "#E5E5E5",
-        "text_white": "#FFFFFF"
+        "text_light": "#E5E5E5"
       }
     }
   },

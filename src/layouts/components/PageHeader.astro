@@ -17,7 +17,7 @@ const { title, subtitle } = Astro.props;
     </div>
     <div
       class="absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2 size-160 xl:size-300 -z-20 blur-2xl"
-      style="background: radial-gradient(circle, #9982ff 0%, #6e4dffc8 20%, rgba(202, 194, 255, 0) 70%, rgba(255, 255, 255, 0) 100%);"
+      style="background: radial-gradient(circle, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 78%, transparent) 20%, transparent 70%);"
     >
     </div>
     <div
@@ -54,7 +54,7 @@ const { title, subtitle } = Astro.props;
             <ellipse
               cx="143"
               cy="252.378"
-              fill="#530DBB"
+              fill="var(--color-primary-light)"
               fill-opacity=".5"
               rx="143"
               ry="252.378"
@@ -130,8 +130,8 @@ const { title, subtitle } = Astro.props;
             y2="203.106"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#7369FF"></stop>
-            <stop offset="1" stop-color="#6971FF" stop-opacity="0"></stop>
+            <stop stop-color="var(--color-primary)"></stop>
+            <stop offset="1" stop-color="var(--color-primary)" stop-opacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="d-ph"
@@ -141,8 +141,8 @@ const { title, subtitle } = Astro.props;
             y2="213.574"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#7369FF"></stop>
-            <stop offset="1" stop-color="#6971FF" stop-opacity="0"></stop>
+            <stop stop-color="var(--color-primary)"></stop>
+            <stop offset="1" stop-color="var(--color-primary)" stop-opacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="f-ph"
@@ -152,8 +152,8 @@ const { title, subtitle } = Astro.props;
             y2="276.359"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#7369FF"></stop>
-            <stop offset="1" stop-color="#6971FF" stop-opacity="0"></stop>
+            <stop stop-color="var(--color-primary)"></stop>
+            <stop offset="1" stop-color="var(--color-primary)" stop-opacity="0"></stop>
           </linearGradient>
         </defs>
       </svg>

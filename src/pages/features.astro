@@ -62,7 +62,7 @@ const featuresData: Features = features.data;
     </div>
     <div
       class="absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2 size-160 xl:size-300 -z-20 blur-2xl"
-      style="background: radial-gradient(circle, #9982ff 0%, #6e4dffc8 20%, rgba(202, 194, 255, 0) 70%, rgba(255, 255, 255, 0) 100%);"
+      style="background: radial-gradient(circle, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 78%, transparent) 20%, transparent 70%);"
     >
     </div>
   </section>
@@ -132,7 +132,7 @@ const featuresData: Features = features.data;
                         <div class="size-10 rounded-xl bg-white/6 border border-border grid place-items-center mb-4">
                           <i class={`${item.icon} text-text-light text-lg`} />
                         </div>
-                        <h3 class="text-h5-sm font-bold text-text-white mb-2">
+                        <h3 class="text-h5-sm font-bold text-white mb-2">
                           {item.title}
                         </h3>
                         <p class="text-text">{item.content}</p>

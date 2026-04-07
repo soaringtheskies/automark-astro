@@ -34,7 +34,7 @@ if (!ourStoryData.enable) return;
                   src={ourStoryData.ceo.image}
                   alt={ourStoryData.ceo.name}
                 />
-                <p class="text-text-white font-semibold">
+                <p class="text-white font-semibold">
                   {ourStoryData.ceo.name}
                 </p>
                 <p class="text-text-dark text-sm">{ourStoryData.ceo.role}</p>
@@ -47,14 +47,14 @@ if (!ourStoryData.enable) return;
                 ourStoryData.letter_points &&
                   ourStoryData.letter_points.length > 0 && (
                     <>
-                      <div class="text-h6 text-text-white font-semibold text-center mb-7">
+                      <div class="text-h6 text-white font-semibold text-center mb-7">
                         {ourStoryData.letter_points_title ??
                           "Here's how we do it:"}
                       </div>
                       <div class="flex flex-col gap-y-7 relative vertical-bg-line ">
                         {ourStoryData.letter_points.map((point) => (
                           <div class="bg-linear-to-tl from-border to-body border border-border px-8 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
-                            <span class="font-semibold text-text-white text-lg">
+                            <span class="font-semibold text-white text-lg">
                               {point}
                             </span>
                           </div>
@@ -87,19 +87,19 @@ if (!ourStoryData.enable) return;
             </div>
           </div>
           <div
-            class="size-2 bg-text-white absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2"
+            class="size-2 bg-white absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2"
           >
           </div>
           <div
-            class="size-2 bg-text-white absolute right-0 top-0 translate-x-1/2 -translate-y-1/2"
+            class="size-2 bg-white absolute right-0 top-0 translate-x-1/2 -translate-y-1/2"
           >
           </div>
           <div
-            class="size-2 bg-text-white absolute left-0 bottom-0 -translate-x-1/2 translate-y-1/2"
+            class="size-2 bg-white absolute left-0 bottom-0 -translate-x-1/2 translate-y-1/2"
           >
           </div>
           <div
-            class="size-2 bg-text-white absolute right-0 bottom-0 translate-x-1/2 translate-y-1/2"
+            class="size-2 bg-white absolute right-0 bottom-0 translate-x-1/2 translate-y-1/2"
           >
           </div>
         </div>
@@ -113,7 +113,7 @@ if (!ourStoryData.enable) return;
     class="absolute inset-0 grid place-items-center size-full -z-10 translate-y-10"
   >
     <div
-      class="size-180 xl:size-300 bg-radial from-gradient-end/40 to-transparent from-0% to-70% rounded-full"
+      class="size-180 xl:size-300 bg-radial from-primary/40 to-transparent from-0% to-70% rounded-full"
     >
     </div>
   </div>

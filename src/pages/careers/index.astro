@@ -40,7 +40,7 @@ const jobs = await getSinglePage("careers");
     </div>
     <div
       class="absolute left-1/2 top-0 -translate-y-1/2 -translate-x-1/2 size-160 xl:size-300 -z-20 blur-2xl"
-      style="background: radial-gradient(circle, #9982ff 0%, #6e4dffc8 20%, rgba(202, 194, 255, 0) 70%, rgba(255, 255, 255, 0) 100%);"
+      style="background: radial-gradient(circle, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 78%, transparent) 20%, transparent 70%);"
     >
     </div>
   </section>
@@ -114,7 +114,7 @@ const jobs = await getSinglePage("careers");
             <div class="section-content">
               <div class="grid lg:grid-cols-2 gap-8">
                 {pageData.staff_testimonials?.items?.map((t: any) => (
-                  <div class="rounded-2xl border border-text-white/15 bg-linear-[114deg] from-transparent from-5% to-[#1B275826] to-86% p-8 md:p-10">
+                  <div class="rounded-2xl border border-text-white/15 bg-linear-[114deg] from-transparent from-5% to-primary-light/10 to-86% p-8 md:p-10">
                     <blockquote class="text-text leading-relaxed mb-8">
                       {t.quote}
                     </blockquote>
@@ -127,7 +127,7 @@ const jobs = await getSinglePage("careers");
                         class="size-12 rounded-full object-cover"
                       />
                       <div>
-                        <p class="text-text-white font-semibold">{t.name}</p>
+                        <p class="text-white font-semibold">{t.name}</p>
                         <p class="text-text text-sm">{t.designation}</p>
                       </div>
                     </div>
@@ -138,7 +138,7 @@ const jobs = await getSinglePage("careers");
           </div>
         </div>
         <div class="absolute top-0 lg:bottom-0 grid place-items-center size-full lg:translate-y-20 -z-10">
-          <div class="size-180 xl:size-300 bg-radial from-gradient-start/60 to-transparent from-0% to-70% rounded-full" />
+          <div class="size-180 xl:size-300 bg-radial from-primary-light/60 to-transparent from-0% to-70% rounded-full" />
           <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-180">
             <div class="h-100 w-full overflow-hidden">
               <canvas class="heroSporeCanvas w-full" />
@@ -201,14 +201,14 @@ const jobs = await getSinglePage("careers");
                 y2="84.3521"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#6833D9" />
-                <stop offset="1" stop-color="#060411" />
+                <stop stop-color="var(--color-primary-light)" />
+                <stop offset="1" stop-color="var(--color-body)" />
               </linearGradient>
             </defs>
           </svg>
         </div>
         <div class="absolute inset-0 grid place-items-center size-full -z-10">
-          <div class="size-225 bg-radial from-gradient-start/30 to-transparent from-0% to-70% rounded-full" />
+          <div class="size-225 bg-radial from-primary-light/30 to-transparent from-0% to-70% rounded-full" />
         </div>
       </section>
     )
