@@ -5,11 +5,11 @@ banner:
   button_primary:
     enable: true
     label: "Start Free Trial"
-    link: "#"
+    link: "/pricing"
   button_secondary:
     enable: true
     label: "Book a Demo"
-    link: "#"
+    link: "/contact"
 
 main_features:
   enable: true
@@ -122,7 +122,7 @@ growth_process:
   button:
     enable: true
     label: "Start Your 14-Days Free Trial"
-    link: "#"
+    link: "/pricing"
 
 integrations:
   enable: true
@@ -161,7 +161,7 @@ lead_generation:
   button:
     enable: true
     label: "Get Free Checklist"
-    link: "#"
+    link: "/contact"
 
 pricing:
   enable: true

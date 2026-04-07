@@ -6,6 +6,7 @@ import { render } from "astro:content";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import dateFormat from "@/lib/utils/dateFormat";
+import Share from "@/components/Share.astro";
 
 export async function getStaticPaths() {
   const posts = await getSinglePage("blog");
@@ -109,29 +110,7 @@ const relatedPosts = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
         <!-- Share -->
         <div class="flex flex-wrap items-center gap-6 md:gap-8">
           <h4 class="text-h5 md:text-h4 mb-0">Share article:</h4>
-          <div class="flex items-center gap-4">
-            <a
-              href="#"
-              class="size-9 rounded-full bg-white text-primary hover:bg-primary hover:text-text-light grid place-items-center transition-colors"
-              aria-label="share on facebook"
-            >
-              <i class="fa-brands fa-facebook-f text-lg"></i>
-            </a>
-            <a
-              href="#"
-              class="size-9 rounded-full bg-white text-primary hover:bg-primary hover:text-text-light grid place-items-center transition-colors"
-              aria-label="share on linkedin"
-            >
-              <i class="fa-brands fa-linkedin-in text-lg"></i>
-            </a>
-            <a
-              href="#"
-              class="size-9 rounded-full bg-white text-primary hover:bg-primary hover:text-text-light grid place-items-center transition-colors"
-              aria-label="share on reddit"
-            >
-              <i class="fa-brands fa-reddit-alien text-lg"></i>
-            </a>
-          </div>
+          <Share className="social-icons" />
         </div>
       </div>
     </div>

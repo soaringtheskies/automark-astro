@@ -1,10 +1,12 @@
 ---
+import Social from "@/components/Social.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import social from "@/config/social.json";
+import DynamicIcon from "@/helpers/DynamicIcon";
 import ImageMod from "@/layouts/components/ImageMod.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-import type { Menu, Social } from "@/types";
+import type { Menu, SocialType } from "@/types";
 
 const {
   footer_primary,
@@ -14,7 +16,7 @@ const {
   footer_col_2_title,
   footer_col_3_title,
 } = menu as Menu;
-const { main: socialLinks } = social as Social;
+const { main: socialLinks } = social as SocialType;
 ---
 
 <footer class="section pb-0 relative overflow-hidden">
@@ -98,18 +100,8 @@ const { main: socialLinks } = social as Social;
         class="text-base text-text"
         set:html={markdownify(config.params.copyright)}
       />
-      <ul class="social-icons lg:ml-auto">
-        {
-          socialLinks.map((item) => (
-            <li>
-              <a href={item.link} aria-label={item.name}>
-                <i class={`fa-brands fa-${item.name}`} />
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-      <div></div>
+
+      <Social className="social-icons lg:ml-auto" source={socialLinks} />
     </div>
   </div>
 

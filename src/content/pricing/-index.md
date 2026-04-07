@@ -21,7 +21,7 @@ plans:
     button:
       enable: true
       label: "Get Access"
-      link: "#"
+      link: "/contact"
     description: "Our introductory pricing. This will give you the core necessities."
     features:
       - label: "Up to 10 Members"
@@ -44,7 +44,7 @@ plans:
     button:
       enable: true
       label: "Get Access"
-      link: "#"
+      link: "/contact"
     description: "Our introductory pricing. This will give you the core necessities."
     features:
       - label: "Up to 10 Members"
@@ -66,7 +66,7 @@ plans:
     button:
       enable: true
       label: "Get Access"
-      link: "#"
+      link: "/contact"
     description: "Our introductory pricing. This will give you the core necessities."
     features:
       - label: "Up to 10 Members"

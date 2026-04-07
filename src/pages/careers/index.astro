@@ -113,7 +113,7 @@ const jobs = await getSinglePage("careers");
             </div>
             <div class="section-content">
               <div class="grid lg:grid-cols-2 gap-8">
-                {pageData.staff_testimonials?.items?.map((t: any) => (
+                {pageData.staff_testimonials?.items?.map((item) => (
                   <div class="rounded-2xl  bg-white/5 p-8 md:p-10">
                     <div class="mb-6">
                       <svg
@@ -130,19 +130,19 @@ const jobs = await getSinglePage("careers");
                       </svg>
                     </div>
                     <blockquote class="text-text leading-relaxed mb-8 text-xl font-medium">
-                      {t.quote}
+                      {item.quote}
                     </blockquote>
                     <div class="flex items-center gap-4">
                       <ImageMod
-                        src={t.avatar}
-                        alt={t.name}
+                        src={item.avatar}
+                        alt={item.name}
                         width={48}
                         height={48}
                         class="size-12 rounded-full object-cover"
                       />
                       <div>
-                        <p class="text-white font-semibold">{t.name}</p>
-                        <p class="text-text text-sm">{t.designation}</p>
+                        <p class="text-white font-semibold">{item.name}</p>
+                        <p class="text-text text-sm">{item.designation}</p>
                       </div>
                     </div>
                   </div>

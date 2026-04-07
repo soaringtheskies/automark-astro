@@ -10,11 +10,11 @@ banner:
   button_primary:
     enable: true
     label: "Start Free Trial"
-    link: "#"
+    link: "/pricing"
   button_secondary:
     enable: true
     label: "Book a Demo"
-    link: "#"
+    link: "/contact"
   image: "/images/automark_dashboard.png"
 
 partners:

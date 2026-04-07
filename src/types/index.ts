@@ -49,7 +49,7 @@ export interface SocialLink {
   link: string;
 }
 
-export interface Social {
+export interface SocialType {
   main: SocialLink[];
 }
 
