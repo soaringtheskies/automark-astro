@@ -17,25 +17,25 @@
 
 .section-container {
   @apply flex flex-col gap-10 lg:gap-16;
-  .section-intro {
-    .badge {
-      @apply mb-4;
-    }
-    .title {
-      @apply text-h3 lg:text-h2 mb-2 lg:col-10 mx-auto;
-    }
-    .subtitle {
-      @apply text-lg text-text lg:col-7 mx-auto;
-    }
-  }
-  .section-intro.centralize {
-    @apply text-center flex flex-col items-center gap-y-5;
-  }
-  .section-content {
-    @apply mb-0;
-  }
 }
 
+.section-intro {
+  .badge {
+    @apply mb-4;
+  }
+  .title {
+    @apply text-h3 lg:text-h2 mb-2 lg:col-10 mx-auto;
+  }
+  .subtitle {
+    @apply text-lg text-text lg:col-7 mx-auto;
+  }
+}
+.section-intro.centralize {
+  @apply text-center flex flex-col items-center gap-y-5;
+}
+.section-content {
+  @apply mb-0;
+}
 /* container */
 .container {
   @apply mx-auto xl:max-w-330.5! px-8;

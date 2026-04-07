@@ -131,16 +131,10 @@ const { title, meta_title, description, image, noindex, canonical } =
     />
   </head>
   <body>
+     {/* google tag manager noscript */}
     {
       config.google_tag_manager.enable && (
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${config.google_tag_manager.gtm_id}`}
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"
-          />
-        </noscript>
+        <GoogleTagmanagerNoscript id={config.google_tag_manager.gtm_id} />
       )
     }
 
