@@ -124,28 +124,31 @@ const { title, meta_title, description, image, noindex, canonical } =
     />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Lenis Stylesheet -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/lenis@1.3.17/dist/lenis.css"
-    />
-
-    <!-- CORE SCRIPTS - Loaded asynchronously via defer to restore PageSpeed -->
     <!-- GSAP CDN -->
-    <script is:inline defer src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
-    <script is:inline defer src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-    
+    <script
+      is:inline
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script
+      is:inline
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"
+    ></script>
+
     <!-- LENIS CDN -->
-    <script is:inline defer src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
-    
+    <script
+      is:inline
+      defer
+      src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
+
     <!-- Main UI interactions -->
     <script is:inline defer src="/scripts/main.js"></script>
-    
+
     <!-- Animations (Modules are deferred automatically by browsers) -->
     <script is:inline type="module" src="/scripts/animations.js"></script>
   </head>
   <body>
-     {/* google tag manager noscript */}
+    {/* google tag manager noscript */}
     {
       config.google_tag_manager.enable && (
         <GoogleTagmanagerNoscript id={config.google_tag_manager.gtm_id} />
