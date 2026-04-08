@@ -162,8 +162,7 @@ import { sporeCanvas } from "./particleCanvus.js";
   function init() {
     gsap.registerPlugin(ScrollTrigger);
     // Init Lenis smooth scroll
-    const lenis = new Lenis({ autoRaf: true });
-    lenis.on("scroll", ScrollTrigger.update);
+    new Lenis({ autoRaf: true });
 
     heroVideo();
     updateTrustedPartners();
