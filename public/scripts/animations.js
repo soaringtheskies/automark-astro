@@ -16,7 +16,7 @@ import { sporeCanvas } from "./particleCanvus.js";
 
     gsapVideoShowcase.forEach((el) => {
       mm.add("(min-width: 1280px)", () => {
-        gsap.set(el, { scale: 0.8, rotationX: 10, y: -250 });
+        gsap.set(el, { scale: 0.8, rotationX: 10, top: -250 });
         gsap.to(el, {
           scrollTrigger: {
             trigger: el,
@@ -27,7 +27,7 @@ import { sporeCanvas } from "./particleCanvus.js";
           },
           scale: 1,
           rotationX: 0,
-          y: 0,
+          top: 0,
           ease: "none",
         });
       });
@@ -159,63 +159,6 @@ import { sporeCanvas } from "./particleCanvus.js";
     });
   }
 
-  function textSplitAnimation() {
-    const elements = document.querySelectorAll(".animate-split-text");
-    if (!elements.length) return;
-
-    elements.forEach((el) => {
-      const text = el.textContent;
-      el.innerHTML = "";
-
-      const wordsAndSpaces = text.match(/\S+|\s+/g) || [];
-      const allChars = [];
-
-      wordsAndSpaces.forEach((part) => {
-        if (/^\s+$/.test(part)) {
-          const space = document.createElement("span");
-          space.style.whiteSpace = "pre";
-          space.textContent = part;
-          el.appendChild(space);
-        } else {
-          // Standard inline-block without masks to prevent any layout collapse/shifts during transition
-          const wordWrap = document.createElement("span");
-          wordWrap.style.display = "inline-block";
-
-          part.split("").forEach((char) => {
-            const charWrap = document.createElement("span");
-            charWrap.style.display = "inline-block";
-            charWrap.textContent = char;
-            charWrap.style.willChange = "transform, opacity";
-
-            wordWrap.appendChild(charWrap);
-            allChars.push(charWrap);
-          });
-
-          el.appendChild(wordWrap);
-        }
-      });
-
-      // Simple character fade and glide sequence
-      gsap.fromTo(
-        allChars,
-        { y: 25, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.015,
-          ease: "power3.out",
-          force3D: true,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        },
-      );
-    });
-  }
-
   function init() {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -234,7 +177,6 @@ import { sporeCanvas } from "./particleCanvus.js";
     updateTrustedPartners();
     sporesEffect();
     pricingToggle();
-    textSplitAnimation();
   }
 
   // Run immediately — module scripts are deferred, DOM is already ready
