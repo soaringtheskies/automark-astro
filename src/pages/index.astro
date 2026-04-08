@@ -12,6 +12,7 @@ import OurStory from "@/layouts/components/OurStory.astro";
 import Faq from "@/layouts/components/Faq.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
 import VideoShowcase from "@/layouts/components/VideoShowcase.astro";
+import config from "@/config/config.json";
 import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import Testimonial from "@/partials/Testimonial.astro";
@@ -19,6 +20,8 @@ import Features from "@/partials/Features.astro";
 import type { Homepage } from "@/types";
 const homepage = await getListPage("homepage", "-index");
 const homepageData: Homepage = homepage.data;
+
+const { checklist_form_action } = config.params;
 ---
 
 <Base>
@@ -593,7 +596,7 @@ const homepageData: Homepage = homepage.data;
                       alt="ebook"
                       class="w-full max-w-76.75 mx-auto mb-12"
                     />
-                    <form action="#" class="">
+                    <form action={checklist_form_action} class="">
                       <div class="form-control">
                         <input
                           type="text"
