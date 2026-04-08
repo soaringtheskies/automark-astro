@@ -28,9 +28,13 @@
         tabPane.classList.remove("active");
       });
 
-      const selectedTabNavItem = tabsNav.querySelector(`[data-tab="${tabName}"]`);
+      const selectedTabNavItem = tabsNav.querySelector(
+        `[data-tab="${tabName}"]`,
+      );
       if (selectedTabNavItem) selectedTabNavItem.classList.add("active");
-      const selectedTabPane = tabsContent.querySelector(`[data-tab-panel="${tabName}"]`);
+      const selectedTabPane = tabsContent.querySelector(
+        `[data-tab-panel="${tabName}"]`,
+      );
       if (selectedTabPane) selectedTabPane.classList.add("active");
     }
 
@@ -131,7 +135,9 @@
     bnCardsLayout();
 
     // Comparison Row - randomize images
-    const comparisonRows = document.querySelectorAll("[data-comparison-row-images-path]");
+    const comparisonRows = document.querySelectorAll(
+      "[data-comparison-row-images-path]",
+    );
     comparisonRows.forEach((row) => {
       const images = JSON.parse(row.dataset.comparisonRowImagesPath);
       const container = row;
@@ -148,7 +154,9 @@
     });
 
     // Testimonial Videos - play/pause on click
-    const videoContainers = document.querySelectorAll("[data-testimonial-video]");
+    const videoContainers = document.querySelectorAll(
+      "[data-testimonial-video]",
+    );
     videoContainers.forEach((container) => {
       const video = container.querySelector("video");
       const toggleBtn = container.querySelector("button");
@@ -170,7 +178,9 @@
 
     // Hero Video Showcase - sound toggle
     // Note: GSAP animation is handled in animations.js
-    const heroVideoShowcase = document.querySelector("[data-gsap-video-showcase]");
+    const heroVideoShowcase = document.querySelector(
+      "[data-gsap-video-showcase]",
+    );
     if (heroVideoShowcase) {
       const video = heroVideoShowcase.querySelector("video");
       const toggleBtn = document.getElementById("soundToggle");
