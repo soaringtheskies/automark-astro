@@ -81,6 +81,7 @@ const contactCollection = defineCollection({
             type: z.string(),
             title: z.string(),
             detail: z.string(),
+            link: z.string().optional(),
             icon: z.string().optional(),
           }),
         ),
