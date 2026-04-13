@@ -12,6 +12,7 @@ import OurStory from "@/layouts/components/OurStory.astro";
 import Faq from "@/layouts/components/Faq.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
 import VideoShowcase from "@/layouts/components/VideoShowcase.astro";
+import LeadGeneration from "@/layouts/components/LeadGeneration.astro";
 import config from "@/config/config.json";
 import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
@@ -559,72 +560,7 @@ const { checklist_form_action } = config.params;
   <!-- Lead Generation -->
   {
     homepageData.lead_generation.enable && (
-      <section class="section-box bg-transparent my-0 pb-0">
-        <div class="container-sm">
-          <div class="section-container pb-20">
-            <div class="section-intro centralize">
-              <h2
-                class="title hasHighlight  "
-                set:html={homepageData.lead_generation.title}
-              />
-            </div>
-            <div class="section-content">
-              <div class="flex flex-col-reverse lg:flex-row gap-x-20 gap-y-10">
-                <div class="lg:w-6/12">
-                  <h3 class="text-h5-sm font-bold mb-7">
-                    {homepageData.lead_generation.subtitle}
-                  </h3>
-                  <div
-                    class="space-y-4"
-                    set:html={markdownify(
-                      homepageData.lead_generation.content,
-                      true,
-                    )}
-                  />
-                  <ul class="green-tick-list [&>li]:mb-8 mt-10">
-                    {homepageData.lead_generation.list.map((item: string) => (
-                      <li set:html={markdownify(item)} />
-                    ))}
-                  </ul>
-                </div>
-                <div class="lg:w-6/12">
-                  <div class="bg-light rounded-4xl corner-squircle p-10 xl:px-7.5 xl:py-10">
-                    <ImageMod
-                      src={homepageData.lead_generation.image}
-                      width={307}
-                      height={190}
-                      alt="ebook"
-                      class="w-full max-w-76.75 mx-auto mb-12"
-                    />
-                    <form action={checklist_form_action} class="">
-                      <div class="form-control">
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder="Name"
-                          class="form-input w-full mb-5"
-                          required
-                        />
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="Email Address"
-                          class="form-input w-full mb-5"
-                          required
-                        />
-                        <button type="submit" class="btn btn-primary w-full">
-                          Get Free Checklist
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr class="h-px bg-linear-to-r from-transparent from-10% via-white/50 to-90% to-transparent border-0" />
-      </section>
+      <LeadGeneration lead_generation={homepageData.lead_generation} />
     )
   }
 
