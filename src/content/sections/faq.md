@@ -1,20 +1,18 @@
 ---
 enable: true
-title: "Quick Answers for the Smart Investors"
-description: "Find answers to common questions about our product and services."
+title: "Quick Answers from the Archives"
+description: "Everything you need to know about my mixes, gear, and content policies."
 button:
-  enable: true
+  enable: false
   label: "Get This Template"
-  link: "https://themefisher.com/products/automark-astro?aff=automarkdemo"
+  link: "#"
 items:
-  - question: "Is this software hard to set up?"
-    answer: "Not at all. We built this platform specifically for local business owners who aren't tech experts. We provide templates and 1-on-1 support to get you running fast."
-  - question: "What if I already have a website?"
-    answer: "You can keep your existing website! Our tools (like the Web Chat Widget and Missed Call Text-Back) easily integrate with WordPress, Wix, and Squarespace with a simple line of code."
-  - question: "Can this replace my existing CRM or Mailchimp?"
-    answer: "Yes. Our platform includes a full CRM, unlimited email marketing, and SMS capabilities. Most of our clients cancel 3-5 other software subscriptions when they switch to us."
-  - question: "How does the Missed Call Auto-Responder work?"
-    answer: "When a customer calls your business number and you don't answer, the system instantly texts them back (e.g., 'Sorry we missed your call! How can we help you?'). This stops leads from calling your competitors."
-  - question: "Are there any hidden fees?"
-    answer: "No hidden fees. You pay a simple flat monthly rate. You may just pay fractional cents directly to telecom providers for your SMS usage, exactly what it costs."
+  - question: "Can I use your nightcore mixes in my own videos?"
+    answer: "Yes! All my mixes are free to use for background music in your streams or YouTube videos. I just ask that you drop a link back to my site or channel in your description."
+  - question: "What headphones do you recommend for listening to your tracks?"
+    answer: "It depends on your budget! I have a full tier list on my Hardware page, but you generally want something with a tight, fast bass response and clear highs to really feel the tempo."
+  - question: "Who is the shark I keep hearing in the background of your videos?"
+    answer: "That would be Shorky! He is my official plushie studio mascot and co-producer. He gets final approval on all the heavy bass drops before I upload anything."
+  - question: "How often do you update your hardware list?"
+    answer: "I update the PC specs and peripheral list every time I make a major upgrade to my setup. If a new piece of gear isn't listed there, I'm probably not using it yet!"
 ---

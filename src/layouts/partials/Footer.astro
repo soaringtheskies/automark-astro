@@ -24,9 +24,9 @@ const { main: socialLinks } = social as SocialType;
       <!-- Column 1 - Logo & Contact -->
       <div class="max-w-95 mb-20 text-lg text-text">
         <ImageMod
-          src="/images/logo.svg"
-          width={156}
-          height={50}
+          src={config.site.logo}
+          width={200}
+          height={200}
           class="h-12.5"
           alt="logo"
         />
@@ -35,9 +35,6 @@ const { main: socialLinks } = social as SocialType;
           class="link mt-6 inline-block underline"
           href={`mailto:${config.params.footer_email}`}
           >{config.params.footer_email}</a
-        >
-        <a class="link mt-4 block" href={`tel:${config.params.footer_phone}`}
-          >{config.params.footer_phone}</a
         >
       </div>
       <!-- Column 2 - Primary -->

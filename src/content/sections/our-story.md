@@ -1,20 +1,20 @@
 ---
 enable: true
-badge: "Our Philosophy"
-title: "Why We Do What We Do - A Letter From <strong>Our CEO</strong>"
+badge: "The Philosophy"
+title: "Why I Built This Hub - A Note From <strong>NightcoreSkies</strong>"
 ceo:
   image: "/images/avatar-lg.png"
-  name: "Ronald Richards"
-  role: "Founder & CEO"
-letter: '<p><strong class="text-white font-normal">At Automark, we know you started your local business to serve your community, not to become a software engineer.</strong> The problem is most modern marketing tools are too complex, scattered, and disconnected, which leaves you feeling overwhelmed and stuck in the daily admin grind.</p><br><p>We believe you shouldn''t have to pay for five different subscriptions or spend your weekends sending emails just to grow your company. We understand how frustrating it is to watch hard-earned leads slip through the cracks, which is why we built a single, unified platform that puts your follow-ups, reviews, and bookings on complete autopilot.</p>'
-letter_points_title: "Here's how we do it:"
+  name: "NightcoreSkies (& Shorky)"
+  role: "Creator & Audio Enthusiast"
+letter: '<p><strong class="text-white font-normal">Welcome to my little corner of the internet.</strong> The goal has always been about sharing the energy of a great track and the technical details of a perfect audio setup. I believe that discovering high-quality music and finding good gear shouldn''t be bogged down by gatekeeping or confusing jargon.</p><br><p>Operating with transparency, clear communication, and proper attribution is at the core of everything I build here—because giving original artists the credit they deserve is just good ethics. This site is my dedicated space to cut through the noise, share my exact hardware specs without the fluff, and bring you the best nightcore archives on the web.</p>'
+letter_points_title: "Here is what you can expect:"
 letter_points:
-  - "1. Plug In Your Business Data"
-  - "2. Activate Our Local Workflows"
-  - "3. Watch Your Bookings Grow"
-closing_content: "Stop wasting money on scattered tools that don't talk to each other, and instead enjoy a streamlined business with consistent, predictable revenue growth."
+  - "1. Transparent Hardware & Headphone Reviews"
+  - "2. Properly Credited, High-Energy Mixes"
+  - "3. A Welcoming Space for Audio Enthusiasts"
+closing_content: "Grab your favorite pair of headphones, turn up the volume, and let's soar the skies together."
 button:
   enable: true
-  label: "Start Your 14-Day Free Trial"
-  link: "/pricing"
+  label: "Enter the Archives"
+  link: "/music"
 ---

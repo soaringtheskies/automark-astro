@@ -1,170 +1,170 @@
 ---
 banner:
-  title: "The All-In-One Growth Software for <strong>Local Business Owners</strong>"
-  content: "The complete automated system designed to capture more leads, follow up instantly, and grow your local business - all in one place."
+  title: "NightcoreSkies: <strong>Soaring the Skies</strong>"
+  content: "Welcome to my personal hub. Explore my music archives, watch my latest videos, and geek out over my detailed hardware and headphone setups."
   button_primary:
     enable: true
-    label: "Start Your 14-day Free Trial"
-    link: "/pricing"
+    label: "Stream My Music"
+    link: "/music"
   button_secondary:
     enable: true
-    label: "Book a Demo"
-    link: "/contact"
+    label: "View My Hardware"
+    link: "/hardware"
 
 main_features:
   enable: true
-  title: "Are you losing real customers to the <strong>Follow-up Gap?</strong>"
-  content: "Stop wasting money on marketing if you can't respond fast enough. Our system ensures every lead gets immediate attention."
+  title: "Everything in the <strong>Archives</strong>"
+  content: "A central hub for everything I create and use, from high-tempo beats to the gear that powers it all."
   items:
-    - "Wasted Ad Spend"
-    - "Expensive 'Franken-stack' of tools"
-    - "Scattered Customer Data"
-    - "Missed Calls Costing Thousands"
-    - "Lost Leads to Competitors"
-    - "Slow Response Times"
+    - "Nightcore Music Library"
+    - "Video Archives & Edits"
+    - "PC Hardware Specs"
+    - "Headphone Comparisons"
+    - "Audio Gear Reviews"
+    - "Latest Uploads"
 
 value_props:
   enable: true
-  title: "Replace Your Clunky Tools With A <strong>Smart, All-In-One System</strong>"
-  content: "Log in to a single powerful dashboard to manage everything seamlessly."
+  title: "Explore the <strong>Content & Gear</strong>"
+  content: "Dive into my different passions and see what I've been working on."
   items:
     - logo: "/images/value-proposition/values-icon-1.svg"
-      title: "Automated Customer Follow-Up"
+      title: "Nightcore Music Archives"
       list:
-        - "Missed Call Auto-Responder"
-        - "24/7 Appointment Scheduler"
-        - "Instant SMS & Email Follow-Up"
+        - "High-Energy Remixes"
+        - "Curated Playlists"
+        - "Audio Mixing Projects"
     - logo: "/images/value-proposition/values-icon-2.svg"
-      title: "Smart Customer Database"
+      title: "Video Library"
       list:
-        - "Unified Lead Inbox"
-        - "Smart Pipeline Manager"
-        - "Client Notes & History"
+        - "Latest Uploads"
+        - "Gameplay Archives"
+        - "Creative Edits"
     - logo: "/images/value-proposition/values-icon-3.svg"
-      title: "Autopilot Review Generator"
+      title: "My Hardware Setup"
       list:
-        - "Automated Review Requests"
-        - "Google & Facebook Integration"
-        - "Reputation Tracking"
+        - "Custom PC Specs"
+        - "Monitors & Displays"
+        - "Peripherals & Accessories"
     - logo: "/images/value-proposition/values-icon-4.svg"
-      title: "High-Converting Websites"
+      title: "Headphone Comparisons"
       list:
-        - "Drag-and-Drop Landing Pages"
-        - "Lead Capture Forms"
-        - "Web Chat Widgets"
+        - "My Daily Drivers"
+        - "Studio Monitors"
+        - "IEMs & Earbuds"
 
 our_features:
   enable: true
-  title: "Everything You Need To Put Growth On <strong>Autopilot</strong>"
-  content: "From capturing the very first click to securing a 5-star review, we've got you covered."
+  title: "What You'll Find <strong>Here</strong>"
+  content: "A quick look at the content I regularly update and share with the community."
   items:
     - logo: "/images/features-menu-icon.svg"
-      title: "Automated Customer Follow-up"
-      is_starred: false
-    - logo: "/images/features-menu-icon.svg"
-      title: "Autopilot Review Generator"
-      is_starred: false
-    - logo: "/images/features-menu-icon.svg"
-      title: "Missed Call Auto-Responder"
-      is_starred: false
-    - logo: "/images/features-menu-icon.svg"
-      title: "24/7 Appointment Scheduler"
-      is_starred: false
-    - logo: "/images/features-menu-icon.svg"
-      title: "Unified Lead Inbox"
+      title: "Curated Nightcore Playlists"
       is_starred: true
     - logo: "/images/features-menu-icon.svg"
-      title: "Smart Customer Database"
+      title: "Deep-Dive Tech Reviews"
       is_starred: false
     - logo: "/images/features-menu-icon.svg"
-      title: "High-Converting Websites"
+      title: "Setup Tours"
       is_starred: false
     - logo: "/images/features-menu-icon.svg"
-      title: "Drag & Drop Forms"
+      title: "Video Archives"
       is_starred: false
     - logo: "/images/features-menu-icon.svg"
-      title: "Automated Text Campaigns"
+      title: "Headphone Tier Lists"
+      is_starred: true
+    - logo: "/images/features-menu-icon.svg"
+      title: "Audio Mixing Tips"
+      is_starred: false
+    - logo: "/images/features-menu-icon.svg"
+      title: "Gaming Peripherals"
+      is_starred: false
+    - logo: "/images/features-menu-icon.svg"
+      title: "Behind the Scenes"
+      is_starred: false
+    - logo: "/images/features-menu-icon.svg"
+      title: "Hardware Benchmarks"
       is_starred: false
 
 testimonial_quote:
   enable: true
-  title: "We know you didn't start your local business to become a full-time <strong>Software Engineer</strong>"
-  quote: "Before this system, I was losing half my leads simply because I couldn't get to my phone fast enough while on jobs. Now, the system handles the follow-up for me, and I've seen a 300% jump in bookings."
+  title: "Music and tech that takes you <strong>Higher</strong>"
+  quote: "I built this site to have a single, dedicated place to share the nightcore tracks I love, the videos I create, and the gear I use to experience them all. Welcome to the skies."
 
 single_testimonial:
   enable: true
   stats:
-    - value: "10,000+"
-      label: "Lead Captured"
-    - value: "5x Faster"
-      label: "Response Time"
-    - value: "28hr/week"
-      label: "Hours Saved"
+    - value: "500+"
+      label: "Tracks Archived"
+    - value: "100+"
+      label: "Videos Uploaded"
+    - value: "15+"
+      label: "Headphones Tested"
   testimonial:
-    quote: "This all-in-one software is exactly what our local business needed. It completely eliminated our need for 4 other separate platforms and organized our entire customer pipeline."
+    quote: "This space is where I drop all my creative projects, thoughts on audio gear, and the exact PC specifications I use for rendering and gaming."
     avatar: "/images/avatar.png"
-    name: "Ronald Richards"
-    company: "Local Services Co."
+    name: "NightcoreSkies"
+    company: "Creator & Audio Enthusiast"
 
 growth_process:
   enable: true
-  title: 'Your 3-Step Path to <strong class="italic">Automated Growth</strong>'
+  title: 'How to Navigate the <strong class="italic">Skies</strong>'
   items:
     - logo: "/images/value-proposition/values-icon-2.svg"
-      title: "1. Start Your Trial"
-      content: "Sign up for a free trial and experience the power of the platform for yourself. No credit card required."
+      title: "1. Drop the Beat"
+      content: "Head over to the music section to stream my latest nightcore mixes and curated archives."
     - logo: "/images/value-proposition/values-icon-2.svg"
-      title: "2. Connect Your Business"
-      content: "Forward your calls, plug in your social accounts, and unify your inbox in a matter of clicks."
+      title: "2. Watch the Archives"
+      content: "Check out the video section for my past uploads, gaming content, and visual edits."
     - logo: "/images/value-proposition/values-icon-2.svg"
-      title: "3. Scale on Autopilot"
-      content: "Watch your calendar fill up and reviews come in automatically, so you can focus on serving your customers."
+      title: "3. Geek out on Gear"
+      content: "Visit the hardware page to see exactly what powers my setup, including in-depth headphone comparisons."
   button:
     enable: true
-    label: "Start Your 14-Day Free Trial"
-    link: "/pricing"
+    label: "Browse All Music"
+    link: "/music"
 
 integrations:
   enable: true
-  title: "Connect all your <strong>Applications</strong>"
+  title: "Find Me On These <strong>Platforms</strong>"
   items:
     - image: "/images/integrations/snapchat.png"
-      alt: "snapchat"
+      alt: "social"
     - image: "/images/integrations/fastapi.png"
-      alt: "fastapi"
+      alt: "social"
     - image: "/images/integrations/youtube.png"
       alt: "youtube"
     - image: "/images/integrations/airtable.png"
-      alt: "airtable"
+      alt: "social"
     - image: "/images/integrations/zendesk.png"
-      alt: "zendesk"
+      alt: "social"
     - image: "/images/integrations/slack.png"
-      alt: "slack"
+      alt: "social"
     - image: "/images/integrations/mailchimp.png"
-      alt: "mailchimp"
+      alt: "social"
     - image: "/images/integrations/asana.png"
-      alt: "asana"
+      alt: "social"
 
 lead_generation:
-  enable: true
-  title: "Free Resource for <strong>Local Business Owners</strong>"
-  subtitle: 'The "Leaking Bucket" Audit: 5 Ways You''re Losing Local Leads (And How to Fix Them).'
+  enable: false
+  title: "Featured <strong>Nightcore Mix</strong>"
+  subtitle: 'Listen to my ultimate "Soaring the Skies" playlist.'
   content: |
-    Did you know that most small businesses lose up to 50% of their potential sales simply because of slow follow-up?
+    Need something fast and uplifting? 
 
-    Download our <strong>FREE</strong> Checklist to identify the "lead leaks" in your current business and learn how to plug them with simple software automation.
+    Check out my latest compilation of high-energy tracks designed to keep you moving, whether you are gaming, studying, or just hanging out.
   list:
-    - "<strong>The Follow-Up Audit:</strong> A step-by-step guide to measuring your lead response time."
-    - "<strong>Automation Quick-Wins:</strong> 3 workflows you can set up today to start booking more local appointments."
-    - "<strong>The Tech Stack Check:</strong> Stop paying for 5 different software tools."
+    - "<strong>Non-stop energy:</strong> Carefully curated for the best tempo."
+    - "<strong>Perfect for gaming:</strong> The ultimate background tracks."
+    - "<strong>Crisp audio:</strong> Mixed for optimal headphone listening."
   image: "/images/ebook.png"
   button:
     enable: true
-    label: "Get Free Checklist"
-    link: "/contact"
+    label: "Listen Now"
+    link: "/music"
 
 pricing:
-  enable: true
+  enable: false
   title: "Affordable <strong>Pricing Plans</strong>"
   content: "Choose the plan that fits your local business and start growing automatically."
 ---
